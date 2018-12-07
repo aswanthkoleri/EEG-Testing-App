@@ -1,0 +1,42 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EEG Test</title>
+    <!-- <link href="https://vjs.zencdn.net/7.3.0/video-js.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'mediaelementplayer.min.css' %}" />
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7)
+  <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="https://bulma.io">
+                    <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+                  </a>
+                </div>
+              </nav>
+    <!-- Video player -->
+    <div class="container">
+    <video autoplay="" src="{% static 'video.mp4' %}" type="video/mp4"></video>
+  <div class="columns">
+      <div class="column is-4 is-offset-8">
+        <a class="button is-large is-success" title="Disabled button" disabled>Next</a>
+      </div>
+  </div>
+ 
+</div>
+</body>
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+</html>
