@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EEG Test</title>
-    <!-- <link href="https://vjs.zencdn.net/7.3.0/video-js.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{% static 'mediaelementplayer.min.css' %}" />
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7)
-  <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+  <style>
+ .next-button {
+   text-align: right;
+ }
+  </style>
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -23,10 +24,14 @@
               </nav>
     <!-- Video player -->
     <div class="container">
-    <video autoplay="" src="{% static 'video.mp4' %}" type="video/mp4"></video>
+      <div class="columns">
+        <div class="column is-12">
+          <video  src="{% static 'video.mp4' %}" id="test-video" type="video/mp4" autoplay="autoplay" controls></video>
+        </div>
+      </div>
   <div class="columns">
-      <div class="column is-4 is-offset-8">
-        <a class="button is-large is-success" title="Disabled button" disabled>Next</a>
+      <div class="column is-4 is-offset-8 next-button">
+        <a class="button is-large is-success" id="next" href="/feedback/" title="Disabled button" disabled>Next</a>
       </div>
   </div>
  
@@ -37,6 +42,11 @@
   src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  <script>
+  $("#test-video").bind("ended", function() {
+   console.log("This message is displayed at the ending!");
+  $("#next").removeAttr('disabled');
+});</script>
 
 
 </html>
