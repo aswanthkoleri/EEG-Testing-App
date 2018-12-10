@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EEG Test view page</title>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <script src="airtable.browser.js"></script>
+    <style>
+     .next-button {
+   text-align: right;
+ }
+ </style>
+</head>
+<body>
+     <!-- Navbar start  -->
+     <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+          </a>
+        </div>
+    </nav>
+    <!-- Navbar end  -->
+    <div class="container">
+        <div class="columns">
+          <div class="column is-12 displayVideo">
+            <!-- <video  src="videos/1.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video> -->
+          </div>
+        </div>
+        <div class="columns">
+            <div class="column is-4 is-offset-8 next-button">
+            <a class="button is-large is-success" id="next" href="feedback.html" title="Disabled button" disabled>Next</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Select a random video to display
+    var seen  = JSON.parse(localStorage.getItem("seen"));
+    console.log(seen);
+    var videoNo = Math.floor(Math.random()*2)+1;
+    while(seen.includes(videoNo)){
+        videoNo = Math.floor(Math.random()*2)+1;
+    }
+    localStorage.setItem("videoNo",videoNo);
+  var count = parseInt(localStorage.getItem("count")) + 1 ;
+  localStorage.setItem("count",count);
+    console.log("Video no is "+ videoNo);
+    $('.displayVideo').append('<video  src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video>')
+    $("#test-video").bind("ended", function() {
+     console.log("This message is displayed at the ending!");
+     seen.push(videoNo);
+     localStorage.setItem("seen",JSON.stringify(seen));
+    $("#next").removeAttr('disabled');
+  });
+  
+  </script>
+</html>

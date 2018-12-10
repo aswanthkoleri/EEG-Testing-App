@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EEG test Starting page</title>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <script src="airtable.browser.js"></script>
+</head>
+<body>
+    <!-- Navbar start  -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+          </a>
+        </div>
+    </nav>
+    <!-- Navbar end  -->
+    <section class="hero is-link is-fullheight-with-navbar">
+        <div class="hero-body">
+          <div class="container">
+            <p class="title">
+              Start the EEG Test
+            </p>
+            <div class="field">
+                <label class="label has-text-white">Name</label>
+                <div class="control">
+                  <input class="input" id="name" type="text" placeholder="Enter your name">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">Roll number</label>
+                <div class="control">
+                  <input class="input" id="rollno" type="text" placeholder="Enter your roll number">
+                </div>
+              </div>
+              <div class="control">
+                <button id="submit" class="button is-info">Submit</button>
+              </div>
+          </div>
+        </div>
+    </section>
+
+</body>
+<script>
+var Airtable = require('airtable');
+// Get a base ID for an instance of art gallery example
+var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
+$('#submit').click(function(){
+    var name=document.getElementById("name").value;
+    var rollno=document.getElementById("rollno").value;
+    var seen=[];
+   base('dataset').create({
+  "Name": name,
+  "rollno": rollno
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log(record.getId());
+    localStorage.setItem("recordid", record.getId());
+    localStorage.setItem("count",0);
+    localStorage.setItem("seen",JSON.stringify(seen));
+
+    window.location.href ="file:///home/aswanth/Documents/forfun/sample/view.html";
+    });
+});
+
+
+</script>
+</html>

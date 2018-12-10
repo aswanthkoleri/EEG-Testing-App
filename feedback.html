@@ -1,0 +1,74 @@
+<!-- Here we have to accept the feedback and then check whether we have to finish the task -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EEG Test Feedback Page</title>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <script src="airtable.browser.js"></script>
+</head>
+<body>
+    <!-- Navbar start  -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+              </a>
+            </div>
+    </nav>
+    <!-- Navbar end  -->
+    <div class="container">
+        <div class="columns">
+             <div class="field">
+                <label class="label has-text-white">Slider 1</label>
+                <div class="control">
+                  <input class="input" id="slider1" type="text" placeholder="Slider value">
+                </div>
+              </div>
+               <div class="control">
+                <button id="submit" class="button is-info">Next</button>
+              </div>
+        </div>
+    </div>
+</body>
+<script>
+    var Airtable = require('airtable');
+// Get a base ID for an instance of art gallery example
+var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
+$('#submit').click(function(){
+    var count = parseInt(localStorage.getItem("count"));
+    var videoNo = localStorage.getItem("videoNo");
+    // var videoFieldName = "video"+ count;
+    // var slider1FieldName = count + "slider1";
+    // console.log(videoFieldName);
+    // console.log(slider1FieldName);
+    console.log(videoNo);
+    console.log(count);
+    var recordId = localStorage.getItem("recordid");
+    var sliderValue  = document.getElementById("slider1").value;
+    // var success = 0;
+    if(count == 1 ){
+    base('dataset').update(recordId, {
+    "video01" : videoNo,
+    "01slider1" : sliderValue
+    }, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/sample/view.html";
+    });
+    }else if(count == 2){
+    base('dataset').update(recordId, {
+    "video2" : videoNo,
+    "2slider1" : sliderValue
+    }, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/sample/finish.html"; 
+    });
+    }
+});
+</script>
+</html>
