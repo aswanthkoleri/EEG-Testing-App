@@ -9,6 +9,48 @@
     <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
     <script src="airtable.browser.js"></script>
+    <style>
+        .content {
+            margin-top : 40px;
+        }
+        .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
     <!-- Navbar start  -->
@@ -20,27 +62,192 @@
             </div>
     </nav>
     <!-- Navbar end  -->
+    <section class="hero is-primary">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                    Feedback
+                </h1>
+                <h2 class="subtitle">
+                    
+                </h2>
+              </div>
+            </div>
+          </section>
     <div class="container">
-        <div class="columns">
-             <div class="field">
-                <label class="label has-text-white">Slider 1</label>
-                <div class="control">
-                  <input class="input" id="slider1" type="text" placeholder="Slider value">
+            <div class="field content">
+                <div class="columns">
+                    <h1 class="title"> Arousal :  <span class="tag is-dark is-large" id="arousal"></span> </h1> 
                 </div>
-              </div>
-               <div class="control">
-                <button id="submit" class="button is-info">Next</button>
-              </div>
+
+        <div class="columns is-centered ">
+            <div class="column is-2">
+                Active
+            </div>
+            <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                Neutral
+            </div> -->
+            <div class="column is-2 is-offset-8 has-text-right">
+                Inactive
+            </div>
         </div>
+        <div class="columns ">
+            
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="arousalSlider">
+
+                    <!-- <p>Value: <span id="demo1"></span></p> -->
+                </div>
+        </div>
+            </div>
+            <div class="field content">
+                    <div class="columns">
+                        <h1 class="title"> Valence :  <span class="tag is-dark is-large" id="valence"></span></h1> 
+                    </div>
+            <div class="columns is-centered ">
+                <div class="column is-2">
+                    Unpleasant
+                </div>
+                <div class="column is-2 is-offset-3 has-text-centered">
+                    Neutral
+                </div>
+                <div class="column is-2 is-offset-3 has-text-right">
+                    Pleasant
+                </div>
+            </div>
+            <div class="columns ">
+                
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="valenceSlider">
+    
+                       
+                    </div>
+            </div>
+                </div>
+                <div class="field content">
+                        <div class="columns">
+                            <h1 class="title"> Dominance :  <span class="tag is-dark is-large" id="dominance"></span> </h1> 
+                        </div>
+        
+                <div class="columns is-centered ">
+                    <div class="column is-2">
+                        Submissive
+                    </div>
+                    <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                        Neutral
+                    </div> -->
+                    <div class="column is-2 is-offset-8 has-text-right">
+                        Dominant
+                    </div>
+                </div>
+                <div class="columns ">
+                    
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="dominanceSlider">
+        
+                            
+                        </div>
+                </div>
+                    </div>
+                    <div class="field content">
+                            <div class="columns">
+                                <h1 class="title"> Liking :  <span class="tag is-dark is-large" id="liking"></span> </h1> 
+                            </div>
+            
+                    <div class="columns is-centered ">
+                        <div class="column is-2">
+                            Least
+                        </div>
+                        <div class="column is-2 is-offset-3 has-text-centered">
+                            Fair
+                        </div>
+                        <div class="column is-2 is-offset-3 has-text-right">
+                            Much
+                        </div>
+                    </div>
+                    <div class="columns ">
+                        
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="likingSlider">
+            
+                                
+                            </div>
+                    </div>
+                        </div>
+                        <div class="field content">
+                                <div class="columns">
+                                    <h1 class="title"> Relevance :  <span class="tag is-dark is-large" id="relevance"></span> </h1> 
+                                </div>
+                
+                        <div class="columns is-centered ">
+                            <div class="column is-2">
+                                Not related
+                            </div>
+                            <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                                Neutral
+                            </div> -->
+                            <div class="column is-2 is-offset-8 has-text-right">
+                                Completely related
+                            </div>
+                        </div>
+                        <div class="columns ">
+                            
+                                <div class="slidecontainer">
+                                    <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="relevanceSlider">
+                
+                                    
+                                </div>
+                        </div>
+                            </div>
+                            <div class="field content">
+                                    <div class="columns">
+                                        <h1 class="title"> Familiarity :  <span class="tag is-dark is-large" id="familiarity"></span> </h1> 
+                                    </div>
+                    
+                            <div class="columns is-centered ">
+                                <div class="column is-2">
+                                    Least
+                                </div>
+                                <div class="column is-2 is-offset-3 has-text-centered">
+                                    Fair
+                                </div>
+                                <div class="column is-2 is-offset-3 has-text-right">
+                                    Much
+                                </div>
+                            </div>
+                            <div class="columns ">
+                                
+                                    <div class="slidecontainer">
+                                        <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="familiaritySlider">
+                    
+                                        
+                                    </div>
+                            </div>
+                                </div>
+                            
+
+        <!-- <div class="columns">
+                <div class="slidecontainer">
+                        <input type="range" min="0" max="10" value="50" class="slider" id="myRange2">
+                        <p>Value: <span id="demo2"></span></p>
+                      </div>
+        </div>
+        <div class="columns">
+                <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="slider" id="myRange3">
+                        <p>Value: <span id="demo3"></span></p>
+                      </div>
+        </div> -->
     </div>
 </body>
 <script>
     var Airtable = require('airtable');
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
+var videoNo = localStorage.getItem("videoNo");
 $('#submit').click(function(){
     var count = parseInt(localStorage.getItem("count"));
-    var videoNo = localStorage.getItem("videoNo");
+    
     // var videoFieldName = "video"+ count;
     // var slider1FieldName = count + "slider1";
     // console.log(videoFieldName);
@@ -70,5 +277,58 @@ $('#submit').click(function(){
     });
     }
 });
+$('.subtitle').append('Provide the feedback of video '+ videoNo);
 </script>
+<!-- Slider JS -->
+<script>
+var arousal = document.getElementById("arousalSlider");
+var arousalOutput = document.getElementById("arousal");
+arousalOutput.innerHTML = arousal.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+arousal.oninput = function() {
+  arousalOutput.innerHTML = this.value;
+}
+var valence = document.getElementById("valenceSlider");
+var valenceOutput = document.getElementById("valence");
+valenceOutput.innerHTML = valence.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+valence.oninput = function() {
+  valenceOutput.innerHTML = this.value;
+}
+var dominance = document.getElementById("dominanceSlider");
+var dominanceOutput = document.getElementById("dominance");
+dominanceOutput.innerHTML = dominance.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+dominance.oninput = function() {
+  dominanceOutput.innerHTML = this.value;
+}
+var liking = document.getElementById("likingSlider");
+var likingOutput = document.getElementById("liking");
+likingOutput.innerHTML = liking.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+liking.oninput = function() {
+  likingOutput.innerHTML = this.value;
+}
+var relevance = document.getElementById("relevanceSlider");
+var relevanceOutput = document.getElementById("relevance");
+relevanceOutput.innerHTML = relevance.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+relevance.oninput = function() {
+  relevanceOutput.innerHTML = this.value;
+}
+var familiarity = document.getElementById("familiaritySlider");
+var familiarityOutput = document.getElementById("familiarity");
+familiarityOutput.innerHTML = familiarity.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+familiarity.oninput = function() {
+  familiarityOutput.innerHTML = this.value;
+}
+</script>
+
 </html>
