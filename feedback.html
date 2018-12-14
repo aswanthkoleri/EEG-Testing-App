@@ -262,11 +262,7 @@ var videoNo = localStorage.getItem("videoNo");
 var count = parseInt(localStorage.getItem("count"));
 console.log(count); 
 $('.subtitle').append('Provide the feedback of video '+ count);
-var videoName = new Map();
-videoName.set(1,"5 Years Time")
-videoName.set(2,"Bastard Set Of Dreams")
-videoName.set(3,"Caroline")
-videoName.set(4,"Catwoman_Basketball_Scene")
+
 
 $('#submit').click(function(){
     // var videoFieldName = "video"+ count;
@@ -275,6 +271,11 @@ $('#submit').click(function(){
     // console.log(slider1FieldName);
     console.log(videoNo);
     console.log(count);
+    var videoName = new Map();
+videoName.set("1","5 Years Time");
+videoName.set("2","Bastard Set Of Dreams");
+videoName.set("3","Caroline");
+videoName.set("4","Catwoman_Basketball_Scene");
     var recordId = localStorage.getItem("recordid");
     var valence=document.getElementById("valenceSlider").value;
     var arousal=document.getElementById("arousalSlider").value;
