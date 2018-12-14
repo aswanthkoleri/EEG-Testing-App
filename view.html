@@ -12,6 +12,10 @@
      .next-button {
    text-align: right;
  }
+ video {
+  width: 100%    !important;
+  height: auto   !important;
+}
  </style>
 </head>
 <body>
@@ -32,7 +36,7 @@
         </div>
         <div class="columns">
             <div class="column is-4 is-offset-8 next-button">
-            <a class="button is-large is-success" id="next" href="feedback.html" title="Disabled button" disabled>Next</a>
+            <a class="button is-large is-success" id="next" title="Disabled button" disabled>Next</a>
             </div>
         </div>
     </div>
@@ -45,17 +49,19 @@
     while(seen.includes(videoNo)){
         videoNo = Math.floor(Math.random()*4)+1;
     }
-    localStorage.setItem("videoNo",videoNo);
-  var count = parseInt(localStorage.getItem("count")) + 1 ;
-  localStorage.setItem("count",count);
+    localStorage.setItem("videoNo",videoNo); 
     console.log("Video no is "+ videoNo);
-    $('.displayVideo').append('<video  src="videos/'+videoNo+'.webm" id="test-video" type="video/mp4" autoplay="autoplay" controls></video>')
+    $('.displayVideo').append('<video  src="videos/'+videoNo+'.webm" id="test-video" type="video/webm" autoplay="autoplay" controls></video>')
     $("#test-video").bind("ended", function() {
+      var count = parseInt(localStorage.getItem("count")) + 1 ;
+      localStorage.setItem("count",count);
      console.log("This message is displayed at the ending!");
      seen.push(videoNo);
      localStorage.setItem("seen",JSON.stringify(seen));
     $("#next").removeAttr('disabled');
+    $("#next").attr("href","feedback.html");
   });
+
   
   </script>
 </html>
