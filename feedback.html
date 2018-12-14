@@ -50,7 +50,14 @@
   background: #4CAF50;
   cursor: pointer;
 }
+
 </style>
+ <style>
+        .next-button {
+      text-align: right;
+      margin-top: 30px;
+    }
+    </style>
 </head>
 <body>
     <!-- Navbar start  -->
@@ -238,6 +245,13 @@
                         <p>Value: <span id="demo3"></span></p>
                       </div>
         </div> -->
+        <div class="columns">
+            <div class="column is-2 is-offset-10 next-button">
+                    
+                            <button id="submit" class="button is-large is-info">Next</button>
+                    
+            </div>
+        </div>
     </div>
 </body>
 <script>
@@ -245,9 +259,10 @@
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
 var videoNo = localStorage.getItem("videoNo");
+var count = parseInt(localStorage.getItem("count"));
+console.log(count); 
+$('.subtitle').append('Provide the feedback of video '+ count);
 $('#submit').click(function(){
-    var count = parseInt(localStorage.getItem("count"));
-    
     // var videoFieldName = "video"+ count;
     // var slider1FieldName = count + "slider1";
     // console.log(videoFieldName);
@@ -255,29 +270,72 @@ $('#submit').click(function(){
     console.log(videoNo);
     console.log(count);
     var recordId = localStorage.getItem("recordid");
-    var sliderValue  = document.getElementById("slider1").value;
+    var valence=document.getElementById("valenceSlider").value;
+    var arousal=document.getElementById("arousalSlider").value;
+    var dominance=document.getElementById("dominanceSlider").value;
+    var liking=document.getElementById("likingSlider").value;
+    var relevance=document.getElementById("relevanceSlider").value;
+    var familiarity=document.getElementById("familiaritySlider").value;
     // var success = 0;
-    if(count == 1 ){
+    if(count == 1){
     base('dataset').update(recordId, {
-    "video01" : videoNo,
-    "01slider1" : sliderValue
+    "video1" : videoNo,
+    "arousal1" : arousal,
+    "valence1" : valence,
+    "dominance1" : dominance,
+    "liking1" : liking,
+    "relevance1" : relevance,
+    "familiarity1" : familiarity
     }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="file:///home/aswanth/Documents/forfun/sample/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 2){
     base('dataset').update(recordId, {
     "video2" : videoNo,
-    "2slider1" : sliderValue
+    "arousal2" : arousal,
+    "valence2" : valence,
+    "dominance2" : dominance,
+    "liking2" : liking,
+    "relevance2" : relevance,
+    "familiarity2" : familiarity
     }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="file:///home/aswanth/Documents/forfun/sample/finish.html"; 
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }else if(count == 3){
+    base('dataset').update(recordId, {
+    "video3" : videoNo,
+    "arousal3" : arousal,
+    "valence3" : valence,
+    "dominance3" : dominance,
+    "liking3" : liking,
+    "relevance3" : relevance,
+    "familiarity3" : familiarity
+    }, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }else if(count == 4){
+    base('dataset').update(recordId, {
+    "video4" : videoNo,
+    "arousal4" : arousal,
+    "valence4" : valence,
+    "dominance4" : dominance,
+    "liking4" : liking,
+    "relevance4" : relevance,
+    "familiarity4" : familiarity
+    }, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html"; 
     });
     }
 });
-$('.subtitle').append('Provide the feedback of video '+ videoNo);
+
 </script>
 <!-- Slider JS -->
 <script>
