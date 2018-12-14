@@ -282,7 +282,8 @@ $('#submit').click(function(){
     var liking=document.getElementById("likingSlider").value;
     var relevance=document.getElementById("relevanceSlider").value;
     var familiarity=document.getElementById("familiaritySlider").value;
-    var video=videoName[videoNo];
+    var video=videoName.get(videoNo);
+    console.log(video)
     // var success = 0;
     if(count == 1){
     base('dataset').update(recordId, {
