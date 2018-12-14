@@ -226,12 +226,33 @@
                                 
                                     <div class="slidecontainer">
                                         <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="familiaritySlider">
-                    
-                                        
                                     </div>
                             </div>
                                 </div>
                             
+                                <div class="field content">
+                                    <div class="columns">
+                                        <h1 class="title">Select one emotion from the list : </h1> 
+                                    </div>
+                                    <div class="columns">
+                                        <div class=" column is-6">
+                                                        <div class="select is-large">
+                                                          <select id="emotions">
+                                                            <option>'Miserable: wretchedly unhappy or uncomfortable'</option>
+                                                            <option>"Melancholic: Feeling or expressing pensive sadness"</option>
+                                                            <option>'Sad: Feeling or showing sorrow, unhappy'</option>
+                                                            <option>'Depressed: in a state of unhappiness or despondency'</option>
+                                                            <option>'Dissatisfied: Not content or happy with something.'</option>
+                                                            <option>'Despondent: In low spirits from loss of hope or courage.'</option>
+                                                            <option>'Taken Aback: Shock or surprise someone.'</option>
+                                                            <option>No Emotion From List</option>
+                                                          </select>
+                                                        </div>
+                                        </div>
+
+                                            
+                                    </div>
+                                </div>
 
         <!-- <div class="columns">
                 <div class="slidecontainer">
@@ -283,6 +304,7 @@ videoName.set("4","Catwoman_Basketball_Scene");
     var liking=document.getElementById("likingSlider").value;
     var relevance=document.getElementById("relevanceSlider").value;
     var familiarity=document.getElementById("familiaritySlider").value;
+    var emotion=$("#emotions option:selected").text();
     var video=videoName.get(videoNo);
     console.log(video)
     // var success = 0;
@@ -294,8 +316,9 @@ videoName.set("4","Catwoman_Basketball_Scene");
     "dominance1" : dominance,
     "liking1" : liking,
     "relevance1" : relevance,
-    "familiarity1" : familiarity
-    }, function(err, record) {
+    "familiarity1" : familiarity,
+    "emotion1" : emotion 
+}, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
     window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
@@ -308,8 +331,9 @@ videoName.set("4","Catwoman_Basketball_Scene");
     "dominance2" : dominance,
     "liking2" : liking,
     "relevance2" : relevance,
-    "familiarity2" : familiarity
-    }, function(err, record) {
+    "familiarity2" : familiarity,
+    "emotion2" : emotion 
+}, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
     window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
@@ -322,8 +346,9 @@ videoName.set("4","Catwoman_Basketball_Scene");
     "dominance3" : dominance,
     "liking3" : liking,
     "relevance3" : relevance,
-    "familiarity3" : familiarity
-    }, function(err, record) {
+    "familiarity3" : familiarity,
+    "emotion3" : emotion 
+}, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
     window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
@@ -336,8 +361,9 @@ videoName.set("4","Catwoman_Basketball_Scene");
     "dominance4" : dominance,
     "liking4" : liking,
     "relevance4" : relevance,
-    "familiarity4" : familiarity
-    }, function(err, record) {
+    "familiarity4" : familiarity,
+    "emotion4" : emotion 
+}, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
     window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html"; 
@@ -350,19 +376,45 @@ videoName.set("4","Catwoman_Basketball_Scene");
 <script>
 var arousal = document.getElementById("arousalSlider");
 var arousalOutput = document.getElementById("arousal");
+var valence = document.getElementById("valenceSlider");
+var valenceOutput = document.getElementById("valence");
+var arousalValue=arousal.value
+var valenceValue=valence.value;
 arousalOutput.innerHTML = arousal.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 arousal.oninput = function() {
   arousalOutput.innerHTML = this.value;
+  arousalValue=this.value;
+  if(valenceValue >5 && arousalValue>5){
+        $("#emotions").html('<option>"Happy: Feeling or showing pleasure or contentment" </option><option> "Delighted: Feeling or showing great pleasure"</option><option> "Excited: Very enthusiastic and eager"</option><option>"Aroused: Sexually excited" </option><option> "Triumphant: Feeling or expressing jubilation after a victory or achievement"</option><option>"Amused: Finding something funny or entertaining." </option><option> "Passionate: Arising from intense feelings of sexual love."</option><option>"Joyous: Full of happiness and joy" </option><option>"Lust: Strong sexual desire." </option><option> "Adventorous: Willing to take risks or to try out new methods, ideas, or experiences"</option><option>No Emotion From List </option>')
+    }else if(valenceValue >5 && arousalValue<=5){
+        $('#emotions').html('<option>"Pensive: Engaged in, involving, or reflecting deep or serious thought."</option><option>"Love: An intense feeling of deep affection."</option><option>"Pleased: Feeling or showing pleasure and satisfaction, especially at an event or a situation"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Calm: Not showing or feeling nervousness, anger, or other strong emotions"</option>< option> "Peaceful: Free from disturbance, tranquil."</option><option>"Relaxed: Free from tension and anxiety"</option><option>"Hopeful: Feeling or inspiring optimism about a future event."</option><option>"Compassionate: Feeling or showing sympathy and concern for others."</option><option>No Emotion From List</option>')
+    }
+    else if(valenceValue <=5 && arousalValue>5){
+        $("#emotions").html('<option>"Alarmed: An anxious awareness of danger"</option><option>"Tense: Become tense, typically through anxiety or nervousness"</option><option>"Angry: Feeling or showing strong annoyance, displeasure, or hostility, full of anger"</option><option>"Afraid: Worried that something undesirable will occur or be done"</option><option>"Distress: Suffering from extreme anxiety, sorrow, or pain"</option><option>"Frustrated: Feeling or expressing distress and annoyance resulting from an inability to change or achieve something"</option><option>"Disgust: A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive"</option><option>"Distrustful: Feeling or showing distrust of someone or something."</option><option>"Hate: Have a strong aversion to (something)"</option><option>"Startled: Feeling or showing sudden shock or alarm."</option><option>No Emotion From List</option>')
+    }else if(valenceValue<=5 && arousalValue<=5){
+        $("#emotions").html('<option>"Miserable: wretchedly unhappy or uncomfortable"</option><option>"Melancholic: Feeling or expressing pensive sadness"</option><option>"Sad: Feeling or showing sorrow, unhappy"</option><option>"Depressed: in a state of unhappiness or despondency"</option><option>"Dissatisfied: Not content or happy with something."</option><option>"Despondent: In low spirits from loss of hope or courage."</option><option>"Taken Aback: Shock or surprise someone."</option><option>No Emotion From List</option>');
+    }
 }
-var valence = document.getElementById("valenceSlider");
-var valenceOutput = document.getElementById("valence");
+
 valenceOutput.innerHTML = valence.value; // Display the default slider value
+
 
 // Update the current slider value (each time you drag the slider handle)
 valence.oninput = function() {
   valenceOutput.innerHTML = this.value;
+  valenceValue=this.value;
+    if(valenceValue >5 && arousalValue>5){
+        $("#emotions").html('<option>"Happy: Feeling or showing pleasure or contentment" </option><option> "Delighted: Feeling or showing great pleasure"</option><option> "Excited: Very enthusiastic and eager"</option><option>"Aroused: Sexually excited" </option><option> "Triumphant: Feeling or expressing jubilation after a victory or achievement"</option><option>"Amused: Finding something funny or entertaining." </option><option> "Passionate: Arising from intense feelings of sexual love."</option><option>"Joyous: Full of happiness and joy" </option><option>"Lust: Strong sexual desire." </option><option> "Adventorous: Willing to take risks or to try out new methods, ideas, or experiences"</option><option>No Emotion From List </option>')
+    }else if(valenceValue >5 && arousalValue<=5){
+        $('#emotions').html('<option>"Pensive: Engaged in, involving, or reflecting deep or serious thought."</option><option>"Love: An intense feeling of deep affection."</option><option>"Pleased: Feeling or showing pleasure and satisfaction, especially at an event or a situation"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Calm: Not showing or feeling nervousness, anger, or other strong emotions"</option>< option> "Peaceful: Free from disturbance, tranquil."</option><option>"Relaxed: Free from tension and anxiety"</option><option>"Hopeful: Feeling or inspiring optimism about a future event."</option><option>"Compassionate: Feeling or showing sympathy and concern for others."</option><option>No Emotion From List</option>')
+    }
+    else if(valenceValue <=5 && arousalValue>5){
+        $("#emotions").html('<option>"Alarmed: An anxious awareness of danger"</option><option>"Tense: Become tense, typically through anxiety or nervousness"</option><option>"Angry: Feeling or showing strong annoyance, displeasure, or hostility, full of anger"</option><option>"Afraid: Worried that something undesirable will occur or be done"</option><option>"Distress: Suffering from extreme anxiety, sorrow, or pain"</option><option>"Frustrated: Feeling or expressing distress and annoyance resulting from an inability to change or achieve something"</option><option>"Disgust: A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive"</option><option>"Distrustful: Feeling or showing distrust of someone or something."</option><option>"Hate: Have a strong aversion to (something)"</option><option>"Startled: Feeling or showing sudden shock or alarm."</option><option>No Emotion From List</option>')
+    }else if(valenceValue<=5 && arousalValue<=5){
+        $("#emotions").html('<option>"Miserable: wretchedly unhappy or uncomfortable"</option><option>"Melancholic: Feeling or expressing pensive sadness"</option><option>"Sad: Feeling or showing sorrow, unhappy"</option><option>"Depressed: in a state of unhappiness or despondency"</option><option>"Dissatisfied: Not content or happy with something."</option><option>"Despondent: In low spirits from loss of hope or courage."</option><option>"Taken Aback: Shock or surprise someone."</option><option>No Emotion From List</option>');
+    }
 }
 var dominance = document.getElementById("dominanceSlider");
 var dominanceOutput = document.getElementById("dominance");
