@@ -262,6 +262,12 @@ var videoNo = localStorage.getItem("videoNo");
 var count = parseInt(localStorage.getItem("count"));
 console.log(count); 
 $('.subtitle').append('Provide the feedback of video '+ count);
+var videoName = new Map();
+videoName.set(1,"5 Years Time")
+videoName.set(2,"Bastard Set Of Dreams")
+videoName.set(3,"Caroline")
+videoName.set(4,"Catwoman_Basketball_Scene")
+
 $('#submit').click(function(){
     // var videoFieldName = "video"+ count;
     // var slider1FieldName = count + "slider1";
@@ -276,10 +282,11 @@ $('#submit').click(function(){
     var liking=document.getElementById("likingSlider").value;
     var relevance=document.getElementById("relevanceSlider").value;
     var familiarity=document.getElementById("familiaritySlider").value;
+    var video=videoName[videoNo];
     // var success = 0;
     if(count == 1){
     base('dataset').update(recordId, {
-    "video1" : videoNo,
+    "video1" : video,
     "arousal1" : arousal,
     "valence1" : valence,
     "dominance1" : dominance,
@@ -293,7 +300,7 @@ $('#submit').click(function(){
     });
     }else if(count == 2){
     base('dataset').update(recordId, {
-    "video2" : videoNo,
+    "video2" : video,
     "arousal2" : arousal,
     "valence2" : valence,
     "dominance2" : dominance,
@@ -307,7 +314,7 @@ $('#submit').click(function(){
     });
     }else if(count == 3){
     base('dataset').update(recordId, {
-    "video3" : videoNo,
+    "video3" : video,
     "arousal3" : arousal,
     "valence3" : valence,
     "dominance3" : dominance,
@@ -321,7 +328,7 @@ $('#submit').click(function(){
     });
     }else if(count == 4){
     base('dataset').update(recordId, {
-    "video4" : videoNo,
+    "video4" : video,
     "arousal4" : arousal,
     "valence4" : valence,
     "dominance4" : dominance,
