@@ -8,6 +8,7 @@
     <title>EEG Test Feedback Page</title>
     <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="airtable.browser.js"></script>
     <style>
         .content {
@@ -57,6 +58,12 @@
       text-align: right;
       margin-top: 30px;
     }
+    .fit-screen{
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+    }
     </style>
 </head>
 <body>
@@ -86,7 +93,12 @@
                 <div class="columns">
                     <h1 class="title"> Arousal :  <span class="tag is-dark is-large" id="arousal"></span> </h1> 
                 </div>
-
+        
+        <div class="columns">
+            <div class="column is-10 is-offset-1">
+            <img src="Images/arousal.png" class="fit-screen" >
+        </div>
+        </div>
         <div class="columns is-centered ">
             <div class="column is-2">
                 Active
@@ -111,6 +123,11 @@
                     <div class="columns">
                         <h1 class="title"> Valence :  <span class="tag is-dark is-large" id="valence"></span></h1> 
                     </div>
+            <div class="columns">
+            <div class="column is-10 is-offset-1">
+            <img src="Images/valence.png" class="fit-screen" >
+        </div>
+            </div>    
             <div class="columns is-centered ">
                 <div class="column is-2">
                     Unpleasant
@@ -123,11 +140,8 @@
                 </div>
             </div>
             <div class="columns ">
-                
                     <div class="slidecontainer">
                         <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="valenceSlider">
-    
-                       
                     </div>
             </div>
                 </div>
@@ -135,7 +149,11 @@
                         <div class="columns">
                             <h1 class="title"> Dominance :  <span class="tag is-dark is-large" id="dominance"></span> </h1> 
                         </div>
-        
+                        <div class="columns">
+                                <div class="column is-10 is-offset-1">
+                                <img src="Images/dominance.png" class="fit-screen" >
+                            </div>
+                                </div>  
                 <div class="columns is-centered ">
                     <div class="column is-2">
                         Submissive
@@ -163,13 +181,13 @@
             
                     <div class="columns is-centered ">
                         <div class="column is-2">
-                            Least
+                                <i class="fas fa-thumbs-down fa-flip-horizontal" style="font-size : 50px;"></i>  Least 
                         </div>
                         <div class="column is-2 is-offset-3 has-text-centered">
                             Fair
                         </div>
                         <div class="column is-2 is-offset-3 has-text-right">
-                            Much
+                            Much <i class="fas fa-thumbs-up" style="font-size : 50px;"></i>
                         </div>
                     </div>
                     <div class="columns ">
@@ -185,7 +203,11 @@
                                 <div class="columns">
                                     <h1 class="title"> Relevance :  <span class="tag is-dark is-large" id="relevance"></span> </h1> 
                                 </div>
-                
+                                <div class="columns">
+                                        <div class="column is-10 is-offset-1">
+                                        <img src="Images/recalling.png" class="fit-screen" >
+                                    </div>
+                                        </div>  
                         <div class="columns is-centered ">
                             <div class="column is-2">
                                 Not related
@@ -373,7 +395,7 @@ videoName.set("4","Catwoman_Basketball_Scene");
 
 </script>
 <!-- Slider JS -->
-<script>
+<script> 
 var arousal = document.getElementById("arousalSlider");
 var arousalOutput = document.getElementById("arousal");
 var valence = document.getElementById("valenceSlider");
