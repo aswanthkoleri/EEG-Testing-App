@@ -1,0 +1,475 @@
+<!-- Here we have to accept the feedback and then check whether we have to finish the task -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EEG Test Feedback Page</title>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="airtable.browser.js"></script>
+    <style>
+        .content {
+            margin-top : 40px;
+        }
+        .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+</style>
+ <style>
+        .next-button {
+      text-align: right;
+      margin-top: 30px;
+    }
+    .fit-screen{
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar start  -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+              </a>
+            </div>
+    </nav>
+    <!-- Navbar end  -->
+    <section class="hero is-primary">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                    Feedback
+                </h1>
+                <h2 class="subtitle">
+                    
+                </h2>
+              </div>
+            </div>
+          </section>
+    <div class="container">
+            <div class="field content">
+                <div class="columns">
+                    <h1 class="title"> Arousal :  <span class="tag is-dark is-large" id="arousal"></span> </h1> 
+                </div>
+        
+        <div class="columns">
+            <div class="column is-10 is-offset-1">
+            <img src="Images/arousal.png" class="fit-screen" >
+        </div>
+        </div>
+        <div class="columns is-centered ">
+            <div class="column is-2">
+                Active
+            </div>
+            <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                Neutral
+            </div> -->
+            <div class="column is-2 is-offset-8 has-text-right">
+                Inactive
+            </div>
+        </div>
+        <div class="columns ">
+            
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="arousalSlider">
+
+                    <!-- <p>Value: <span id="demo1"></span></p> -->
+                </div>
+        </div>
+            </div>
+            <div class="field content">
+                    <div class="columns">
+                        <h1 class="title"> Valence :  <span class="tag is-dark is-large" id="valence"></span></h1> 
+                    </div>
+            <div class="columns">
+            <div class="column is-10 is-offset-1">
+            <img src="Images/valence.png" class="fit-screen" >
+        </div>
+            </div>    
+            <div class="columns is-centered ">
+                <div class="column is-2">
+                    Unpleasant
+                </div>
+                <div class="column is-2 is-offset-3 has-text-centered">
+                    Neutral
+                </div>
+                <div class="column is-2 is-offset-3 has-text-right">
+                    Pleasant
+                </div>
+            </div>
+            <div class="columns ">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="valenceSlider">
+                    </div>
+            </div>
+                </div>
+                <div class="field content">
+                        <div class="columns">
+                            <h1 class="title"> Dominance :  <span class="tag is-dark is-large" id="dominance"></span> </h1> 
+                        </div>
+                        <div class="columns">
+                                <div class="column is-10 is-offset-1">
+                                <img src="Images/dominance.png" class="fit-screen" >
+                            </div>
+                                </div>  
+                <div class="columns is-centered ">
+                    <div class="column is-2">
+                        Submissive
+                    </div>
+                    <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                        Neutral
+                    </div> -->
+                    <div class="column is-2 is-offset-8 has-text-right">
+                        Dominant
+                    </div>
+                </div>
+                <div class="columns ">
+                    
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="10" value="5" class="slider" step="0.1" id="dominanceSlider">
+        
+                            
+                        </div>
+                </div>
+                    </div>
+                    <div class="field content">
+                            <div class="columns">
+                                <h1 class="title"> Liking :  <span class="tag is-dark is-large" id="liking"></span> </h1> 
+                            </div>
+            
+                    <div class="columns is-centered ">
+                        <div class="column is-2">
+                                <i class="fas fa-thumbs-down fa-flip-horizontal" style="font-size : 50px;"></i>  Least 
+                        </div>
+                        <div class="column is-2 is-offset-3 has-text-centered">
+                            Fair
+                        </div>
+                        <div class="column is-2 is-offset-3 has-text-right">
+                            Much <i class="fas fa-thumbs-up" style="font-size : 50px;"></i>
+                        </div>
+                    </div>
+                    <div class="columns ">
+                        
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="likingSlider">
+            
+                                
+                            </div>
+                    </div>
+                        </div>
+                        <div class="field content">
+                                <div class="columns">
+                                    <h1 class="title"> Relevance :  <span class="tag is-dark is-large" id="relevance"></span> </h1> 
+                                </div>
+                                <div class="columns">
+                                        <div class="column is-10 is-offset-1">
+                                        <img src="Images/recalling.png" class="fit-screen" >
+                                    </div>
+                                        </div>  
+                        <div class="columns is-centered ">
+                            <div class="column is-2">
+                                Not related
+                            </div>
+                            <!-- <div class="column is-2 is-off has-text-centeredset-3">
+                                Neutral
+                            </div> -->
+                            <div class="column is-2 is-offset-8 has-text-right">
+                                Completely related
+                            </div>
+                        </div>
+                        <div class="columns ">
+                            
+                                <div class="slidecontainer">
+                                    <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="relevanceSlider">
+                
+                                    
+                                </div>
+                        </div>
+                            </div>
+                            <div class="field content">
+                                    <div class="columns">
+                                        <h1 class="title"> Familiarity :  <span class="tag is-dark is-large" id="familiarity"></span> </h1> 
+                                    </div>
+                    
+                            <div class="columns is-centered ">
+                                <div class="column is-2">
+                                    Least
+                                </div>
+                                <div class="column is-2 is-offset-3 has-text-centered">
+                                    Fair
+                                </div>
+                                <div class="column is-2 is-offset-3 has-text-right">
+                                    Much
+                                </div>
+                            </div>
+                            <div class="columns ">
+                                
+                                    <div class="slidecontainer">
+                                        <input type="range" min="0" max="5" value="2.5" class="slider" step="0.1" id="familiaritySlider">
+                                    </div>
+                            </div>
+                                </div>
+                            
+                                <div class="field content">
+                                    <div class="columns">
+                                        <h1 class="title">Select one emotion from the list : </h1> 
+                                    </div>
+                                    <div class="columns">
+                                        <div class=" column is-6">
+                                                        <div class="select is-large">
+                                                          <select id="emotions">
+                                                            <option>'Miserable: wretchedly unhappy or uncomfortable'</option>
+                                                            <option>"Melancholic: Feeling or expressing pensive sadness"</option>
+                                                            <option>'Sad: Feeling or showing sorrow, unhappy'</option>
+                                                            <option>'Depressed: in a state of unhappiness or despondency'</option>
+                                                            <option>'Dissatisfied: Not content or happy with something.'</option>
+                                                            <option>'Despondent: In low spirits from loss of hope or courage.'</option>
+                                                            <option>'Taken Aback: Shock or surprise someone.'</option>
+                                                            <option>No Emotion From List</option>
+                                                          </select>
+                                                        </div>
+                                        </div>
+
+                                            
+                                    </div>
+                                </div>
+
+        <!-- <div class="columns">
+                <div class="slidecontainer">
+                        <input type="range" min="0" max="10" value="50" class="slider" id="myRange2">
+                        <p>Value: <span id="demo2"></span></p>
+                      </div>
+        </div>
+        <div class="columns">
+                <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="50" class="slider" id="myRange3">
+                        <p>Value: <span id="demo3"></span></p>
+                      </div>
+        </div> -->
+        <div class="columns">
+            <div class="column is-2 is-offset-10 next-button">
+                    
+                            <button id="submit" class="button is-large is-info">Next</button>
+                    
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var Airtable = require('airtable');
+// Get a base ID for an instance of art gallery example
+var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
+var videoNo = localStorage.getItem("videoNo");
+var count = parseInt(localStorage.getItem("count"));
+console.log(count); 
+$('.subtitle').append('Provide the feedback of video '+ count);
+
+
+$('#submit').click(function(){
+    // var videoFieldName = "video"+ count;
+    // var slider1FieldName = count + "slider1";
+    // console.log(videoFieldName);
+    // console.log(slider1FieldName);
+    console.log(videoNo);
+    console.log(count);
+    var videoName = new Map();
+videoName.set("1","5 Years Time");
+videoName.set("2","Bastard Set Of Dreams");
+videoName.set("3","Caroline");
+videoName.set("4","Catwoman_Basketball_Scene");
+    var recordId = localStorage.getItem("recordid");
+    var valence=document.getElementById("valenceSlider").value;
+    var arousal=document.getElementById("arousalSlider").value;
+    var dominance=document.getElementById("dominanceSlider").value;
+    var liking=document.getElementById("likingSlider").value;
+    var relevance=document.getElementById("relevanceSlider").value;
+    var familiarity=document.getElementById("familiaritySlider").value;
+    var emotion=$("#emotions option:selected").text();
+    var video=videoName.get(videoNo);
+    console.log(video)
+    // var success = 0;
+    if(count == 1){
+    base('dataset').update(recordId, {
+    "video1" : video,
+    "arousal1" : arousal,
+    "valence1" : valence,
+    "dominance1" : dominance,
+    "liking1" : liking,
+    "relevance1" : relevance,
+    "familiarity1" : familiarity,
+    "emotion1" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    });
+    }else if(count == 2){
+    base('dataset').update(recordId, {
+    "video2" : video,
+    "arousal2" : arousal,
+    "valence2" : valence,
+    "dominance2" : dominance,
+    "liking2" : liking,
+    "relevance2" : relevance,
+    "familiarity2" : familiarity,
+    "emotion2" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    });
+    }else if(count == 3){
+    base('dataset').update(recordId, {
+    "video3" : video,
+    "arousal3" : arousal,
+    "valence3" : valence,
+    "dominance3" : dominance,
+    "liking3" : liking,
+    "relevance3" : relevance,
+    "familiarity3" : familiarity,
+    "emotion3" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    });
+    }else if(count == 4){
+    base('dataset').update(recordId, {
+    "video4" : video,
+    "arousal4" : arousal,
+    "valence4" : valence,
+    "dominance4" : dominance,
+    "liking4" : liking,
+    "relevance4" : relevance,
+    "familiarity4" : familiarity,
+    "emotion4" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html"; 
+    });
+    }
+});
+
+</script>
+<!-- Slider JS -->
+<script> 
+var arousal = document.getElementById("arousalSlider");
+var arousalOutput = document.getElementById("arousal");
+var valence = document.getElementById("valenceSlider");
+var valenceOutput = document.getElementById("valence");
+var arousalValue=arousal.value
+var valenceValue=valence.value;
+arousalOutput.innerHTML = arousal.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+arousal.oninput = function() {
+  arousalOutput.innerHTML = this.value;
+  arousalValue=this.value;
+  if(valenceValue >5 && arousalValue>5){
+        $("#emotions").html('<option>"Happy: Feeling or showing pleasure or contentment" </option><option> "Delighted: Feeling or showing great pleasure"</option><option> "Excited: Very enthusiastic and eager"</option><option>"Aroused: Sexually excited" </option><option> "Triumphant: Feeling or expressing jubilation after a victory or achievement"</option><option>"Amused: Finding something funny or entertaining." </option><option> "Passionate: Arising from intense feelings of sexual love."</option><option>"Joyous: Full of happiness and joy" </option><option>"Lust: Strong sexual desire." </option><option> "Adventorous: Willing to take risks or to try out new methods, ideas, or experiences"</option><option>No Emotion From List </option>')
+    }else if(valenceValue >5 && arousalValue<=5){
+        $('#emotions').html('<option>"Pensive: Engaged in, involving, or reflecting deep or serious thought."</option><option>"Love: An intense feeling of deep affection."</option><option>"Pleased: Feeling or showing pleasure and satisfaction, especially at an event or a situation"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Calm: Not showing or feeling nervousness, anger, or other strong emotions"</option>< option> "Peaceful: Free from disturbance, tranquil."</option><option>"Relaxed: Free from tension and anxiety"</option><option>"Hopeful: Feeling or inspiring optimism about a future event."</option><option>"Compassionate: Feeling or showing sympathy and concern for others."</option><option>No Emotion From List</option>')
+    }
+    else if(valenceValue <=5 && arousalValue>5){
+        $("#emotions").html('<option>"Alarmed: An anxious awareness of danger"</option><option>"Tense: Become tense, typically through anxiety or nervousness"</option><option>"Angry: Feeling or showing strong annoyance, displeasure, or hostility, full of anger"</option><option>"Afraid: Worried that something undesirable will occur or be done"</option><option>"Distress: Suffering from extreme anxiety, sorrow, or pain"</option><option>"Frustrated: Feeling or expressing distress and annoyance resulting from an inability to change or achieve something"</option><option>"Disgust: A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive"</option><option>"Distrustful: Feeling or showing distrust of someone or something."</option><option>"Hate: Have a strong aversion to (something)"</option><option>"Startled: Feeling or showing sudden shock or alarm."</option><option>No Emotion From List</option>')
+    }else if(valenceValue<=5 && arousalValue<=5){
+        $("#emotions").html('<option>"Miserable: wretchedly unhappy or uncomfortable"</option><option>"Melancholic: Feeling or expressing pensive sadness"</option><option>"Sad: Feeling or showing sorrow, unhappy"</option><option>"Depressed: in a state of unhappiness or despondency"</option><option>"Dissatisfied: Not content or happy with something."</option><option>"Despondent: In low spirits from loss of hope or courage."</option><option>"Taken Aback: Shock or surprise someone."</option><option>No Emotion From List</option>');
+    }
+}
+
+valenceOutput.innerHTML = valence.value; // Display the default slider value
+
+
+// Update the current slider value (each time you drag the slider handle)
+valence.oninput = function() {
+  valenceOutput.innerHTML = this.value;
+  valenceValue=this.value;
+    if(valenceValue >5 && arousalValue>5){
+        $("#emotions").html('<option>"Happy: Feeling or showing pleasure or contentment" </option><option> "Delighted: Feeling or showing great pleasure"</option><option> "Excited: Very enthusiastic and eager"</option><option>"Aroused: Sexually excited" </option><option> "Triumphant: Feeling or expressing jubilation after a victory or achievement"</option><option>"Amused: Finding something funny or entertaining." </option><option> "Passionate: Arising from intense feelings of sexual love."</option><option>"Joyous: Full of happiness and joy" </option><option>"Lust: Strong sexual desire." </option><option> "Adventorous: Willing to take risks or to try out new methods, ideas, or experiences"</option><option>No Emotion From List </option>')
+    }else if(valenceValue >5 && arousalValue<=5){
+        $('#emotions').html('<option>"Pensive: Engaged in, involving, or reflecting deep or serious thought."</option><option>"Love: An intense feeling of deep affection."</option><option>"Pleased: Feeling or showing pleasure and satisfaction, especially at an event or a situation"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Contented: Feeling or expressing happiness or satisfaction"</option><option>"Calm: Not showing or feeling nervousness, anger, or other strong emotions"</option>< option> "Peaceful: Free from disturbance, tranquil."</option><option>"Relaxed: Free from tension and anxiety"</option><option>"Hopeful: Feeling or inspiring optimism about a future event."</option><option>"Compassionate: Feeling or showing sympathy and concern for others."</option><option>No Emotion From List</option>')
+    }
+    else if(valenceValue <=5 && arousalValue>5){
+        $("#emotions").html('<option>"Alarmed: An anxious awareness of danger"</option><option>"Tense: Become tense, typically through anxiety or nervousness"</option><option>"Angry: Feeling or showing strong annoyance, displeasure, or hostility, full of anger"</option><option>"Afraid: Worried that something undesirable will occur or be done"</option><option>"Distress: Suffering from extreme anxiety, sorrow, or pain"</option><option>"Frustrated: Feeling or expressing distress and annoyance resulting from an inability to change or achieve something"</option><option>"Disgust: A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive"</option><option>"Distrustful: Feeling or showing distrust of someone or something."</option><option>"Hate: Have a strong aversion to (something)"</option><option>"Startled: Feeling or showing sudden shock or alarm."</option><option>No Emotion From List</option>')
+    }else if(valenceValue<=5 && arousalValue<=5){
+        $("#emotions").html('<option>"Miserable: wretchedly unhappy or uncomfortable"</option><option>"Melancholic: Feeling or expressing pensive sadness"</option><option>"Sad: Feeling or showing sorrow, unhappy"</option><option>"Depressed: in a state of unhappiness or despondency"</option><option>"Dissatisfied: Not content or happy with something."</option><option>"Despondent: In low spirits from loss of hope or courage."</option><option>"Taken Aback: Shock or surprise someone."</option><option>No Emotion From List</option>');
+    }
+}
+var dominance = document.getElementById("dominanceSlider");
+var dominanceOutput = document.getElementById("dominance");
+dominanceOutput.innerHTML = dominance.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+dominance.oninput = function() {
+  dominanceOutput.innerHTML = this.value;
+}
+var liking = document.getElementById("likingSlider");
+var likingOutput = document.getElementById("liking");
+likingOutput.innerHTML = liking.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+liking.oninput = function() {
+  likingOutput.innerHTML = this.value;
+}
+var relevance = document.getElementById("relevanceSlider");
+var relevanceOutput = document.getElementById("relevance");
+relevanceOutput.innerHTML = relevance.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+relevance.oninput = function() {
+  relevanceOutput.innerHTML = this.value;
+}
+var familiarity = document.getElementById("familiaritySlider");
+var familiarityOutput = document.getElementById("familiarity");
+familiarityOutput.innerHTML = familiarity.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+familiarity.oninput = function() {
+  familiarityOutput.innerHTML = this.value;
+}
+</script>
+
+</html>

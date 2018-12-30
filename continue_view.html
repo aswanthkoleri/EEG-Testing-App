@@ -13,12 +13,8 @@
    text-align: right;
  }
  video {
-  width: 500px    !important;
-  height: 500px   !important;
- 
-}
-.displayVideo {
-  text-align: center;
+  width: 100%    !important;
+  height: auto   !important;
 }
  </style>
 </head>
@@ -34,7 +30,7 @@
     <!-- Navbar end  -->
     <div class="container">
         <div class="columns">
-          <div class="column is-10 is-offset-1 displayVideo">
+          <div class="column is-12 displayVideo">
             <!-- <video  src="videos/1.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video> -->
           </div>
         </div>
@@ -55,7 +51,7 @@
     }
     localStorage.setItem("videoNo",videoNo); 
     console.log("Video no is "+ videoNo);
-    $('.displayVideo').append('<video  src="videos/'+videoNo+'.webm" id="test-video" type="video/webm" class="video-player" autoplay="autoplay"></video>')
+    $('.displayVideo').append('<video  src="videos/'+videoNo+'.webm" id="test-video" type="video/webm" autoplay="autoplay"></video>')
     $("#test-video").bind("ended", function() {
       var count = parseInt(localStorage.getItem("count")) + 1 ;
       localStorage.setItem("count",count);
@@ -63,7 +59,7 @@
      seen.push(videoNo);
      localStorage.setItem("seen",JSON.stringify(seen));
     $("#next").removeAttr('disabled');
-    $("#next").attr("href","feedback.html");
+    $("#next").attr("href","continue_feedback.html");
   });
   </script>
 </html>
