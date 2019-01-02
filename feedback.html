@@ -289,8 +289,9 @@
                       </div>
         </div> -->
         <div class="columns">
-            <div class="column is-2 is-offset-10 next-button">
-                    
+        
+            <div class="column is-4 is-offset-8 next-button">
+                            <button id="finish" class="button is-large is-success" disabled>Finish </button>&nbsp&nbsp&nbsp
                             <button id="submit" class="button is-large is-info">Next</button>
                     
             </div>
@@ -298,14 +299,44 @@
     </div>
 </body>
 <script>
-    var Airtable = require('airtable');
+var Airtable = require('airtable');
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
 var videoNo = localStorage.getItem("videoNo");
 var count = parseInt(localStorage.getItem("count"));
 console.log(count); 
 $('.subtitle').append('Provide the feedback of video '+ count);
-
+var videoName = new Map();
+videoName.set("1","Anacondas_The_Hunt_for_the_Blood_Orchid_clip");
+videoName.set("2","Anger_LBS");
+videoName.set("3","Arshad Warsi Bollywood Comedy [360p]");
+videoName.set("4","Best_Horror_Kills_Ghost_Ship_Opening_scene");
+videoName.set("5","Brothers_9_10_Movie_CLIP_Sam_Loses_It_2009_HD");
+videoName.set("6","Catwoman_Basketball_Scene");
+videoName.set("7","disgust");
+videoName.set("8","excitingMohabbat_1");
+videoName.set("9","Fast_Furious_7_Plane_Scene");
+videoName.set("10","Final Race of Milkha Singh Career [360p]");
+videoName.set("11","First Day Of My Life");
+videoName.set("12","friendly");
+videoName.set("13","FunAlaBarfi_1");
+videoName.set("14","funTamma_1");
+videoName.set("15","hateful1");
+videoName.set("16","hate_lbs");
+videoName.set("17","horror");
+videoName.set("18","How To Fight Loneliness");
+videoName.set("19","I'm Yours");
+videoName.set("20","joyKolaveri_1");
+videoName.set("21","loveNashe_1");
+videoName.set("22","Madari movie of best scene [360p]");
+videoName.set("23","MASOOM");
+videoName.set("24","Milkha Visits His Village in Pakistan [360p]");
+videoName.set("25","peaceful2");
+videoName.set("26","SaddaHaq_1");
+videoName.set("27","The_Champ_1979_Death_Final_Ending_Scene_VERY_SAD");
+videoName.set("28","The Weight Of My Words");
+videoName.set("29","Titanic_2012_Sinking_Scene_HD_720p");
+videoName.set("30","Titanic_Movie_Crash_Scene");
 
 $('#submit').click(function(){
     // var videoFieldName = "video"+ count;
@@ -314,11 +345,8 @@ $('#submit').click(function(){
     // console.log(slider1FieldName);
     console.log(videoNo);
     console.log(count);
-    var videoName = new Map();
-videoName.set("1","5 Years Time");
-videoName.set("2","Bastard Set Of Dreams");
-videoName.set("3","Caroline");
-videoName.set("4","Catwoman_Basketball_Scene");
+   
+
     var recordId = localStorage.getItem("recordid");
     var valence=document.getElementById("valenceSlider").value;
     var arousal=document.getElementById("arousalSlider").value;
@@ -343,7 +371,7 @@ videoName.set("4","Catwoman_Basketball_Scene");
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 2){
     base('dataset').update(recordId, {
@@ -358,7 +386,7 @@ videoName.set("4","Catwoman_Basketball_Scene");
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 3){
     base('dataset').update(recordId, {
@@ -373,7 +401,7 @@ videoName.set("4","Catwoman_Basketball_Scene");
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 4){
     base('dataset').update(recordId, {
@@ -388,10 +416,760 @@ videoName.set("4","Catwoman_Basketball_Scene");
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html"; 
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html"; 
+    });
+    }else if(count == 5){
+    base('dataset').update(recordId, {
+    "video5" : video,
+    "arousal5" : arousal,
+    "valence5" : valence,
+    "dominance5" : dominance,
+    "liking5" : liking,
+    "relevance5" : relevance,
+    "familarity5" : familiarity,
+    "emotion5" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
+    else if(count == 6){
+    base('dataset').update(recordId, {
+    "video6" : video,
+    "arousal6" : arousal,
+    "valence6" : valence,
+    "dominance6" : dominance,
+    "liking6" : liking,
+    "relevance6" : relevance,
+    "familarity6" : familiarity,
+    "emotion6" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 7){
+    base('dataset').update(recordId, {
+    "video7" : video,
+    "arousal7" : arousal,
+    "valence7" : valence,
+    "dominance7" : dominance,
+    "liking7" : liking,
+    "relevance7" : relevance,
+    "familarity7" : familiarity,
+    "emotion7" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 8){
+    base('dataset').update(recordId, {
+    "video8" : video,
+    "arousal8" : arousal,
+    "valence8" : valence,
+    "dominance8" : dominance,
+    "liking8" : liking,
+    "relevance8" : relevance,
+    "familarity8" : familiarity,
+    "emotion8" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 9){
+    base('dataset').update(recordId, {
+    "video9" : video,
+    "arousal9" : arousal,
+    "valence9" : valence,
+    "dominance9" : dominance,
+    "liking9" : liking,
+    "relevance9" : relevance,
+    "familarity9" : familiarity,
+    "emotion9" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 10){
+    base('dataset').update(recordId, {
+    "video10" : video,
+    "arousal10" : arousal,
+    "valence10" : valence,
+    "dominance10" : dominance,
+    "liking10" : liking,
+    "relevance10" : relevance,
+    "familarity10" : familiarity,
+    "emotion10" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 11){
+    base('dataset').update(recordId, {
+    "video11" : video,
+    "arousal11" : arousal,
+    "valence11" : valence,
+    "dominance11" : dominance,
+    "liking11" : liking,
+    "relevance11" : relevance,
+    "familarity11" : familiarity,
+    "emotion11" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 12){
+    base('dataset').update(recordId, {
+    "video12" : video,
+    "arousal12" : arousal,
+    "valence12" : valence,
+    "dominance12" : dominance,
+    "liking12" : liking,
+    "relevance12" : relevance,
+    "familarity12" : familiarity,
+    "emotion12" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 13){
+    base('dataset').update(recordId, {
+    "video13" : video,
+    "arousal13" : arousal,
+    "valence13" : valence,
+    "dominance13" : dominance,
+    "liking13" : liking,
+    "relevance13" : relevance,
+    "familarity13" : familiarity,
+    "emotion13" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 14){
+    base('dataset').update(recordId, {
+    "video14" : video,
+    "arousal14" : arousal,
+    "valence14" : valence,
+    "dominance14" : dominance,
+    "liking14" : liking,
+    "relevance14" : relevance,
+    "familarity14" : familiarity,
+    "emotion14" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 15){
+    base('dataset').update(recordId, {
+    "video15" : video,
+    "arousal15" : arousal,
+    "valence15" : valence,
+    "dominance15" : dominance,
+    "liking15" : liking,
+    "relevance15" : relevance,
+    "familarity15" : familiarity,
+    "emotion15" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 16){
+    base('dataset').update(recordId, {
+    "video16" : video,
+    "arousal16" : arousal,
+    "valence16" : valence,
+    "dominance16" : dominance,
+    "liking16" : liking,
+    "relevance16" : relevance,
+    "familarity16" : familiarity,
+    "emotion16" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 17){
+    base('dataset').update(recordId, {
+    "video17" : video,
+    "arousal17" : arousal,
+    "valence17" : valence,
+    "dominance17" : dominance,
+    "liking17" : liking,
+    "relevance17" : relevance,
+    "familarity17" : familiarity,
+    "emotion17" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 18){
+    base('dataset').update(recordId, {
+    "video18" : video,
+    "arousal18" : arousal,
+    "valence18" : valence,
+    "dominance18" : dominance,
+    "liking18" : liking,
+    "relevance18" : relevance,
+    "familarity18" : familiarity,
+    "emotion18" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 19){
+    base('dataset').update(recordId, {
+    "video19" : video,
+    "arousal19" : arousal,
+    "valence19" : valence,
+    "dominance19" : dominance,
+    "liking19" : liking,
+    "relevance19" : relevance,
+    "familarity19" : familiarity,
+    "emotion19" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 20){
+    base('dataset').update(recordId, {
+    "video20" : video,
+    "arousal20" : arousal,
+    "valence20" : valence,
+    "dominance20" : dominance,
+    "liking20" : liking,
+    "relevance20" : relevance,
+    "familarity20" : familiarity,
+    "emotion20" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 21){
+    base('dataset').update(recordId, {
+    "video21" : video,
+    "arousal21" : arousal,
+    "valence21" : valence,
+    "dominance21" : dominance,
+    "liking21" : liking,
+    "relevance21" : relevance,
+    "familarity21" : familiarity,
+    "emotion21" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 22){
+    base('dataset').update(recordId, {
+    "video22" : video,
+    "arousal22" : arousal,
+    "valence22" : valence,
+    "dominance22" : dominance,
+    "liking22" : liking,
+    "relevance22" : relevance,
+    "familarity22" : familiarity,
+    "emotion22" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 23){
+    base('dataset').update(recordId, {
+    "video23" : video,
+    "arousal23" : arousal,
+    "valence23" : valence,
+    "dominance23" : dominance,
+    "liking23" : liking,
+    "relevance23" : relevance,
+    "familarity23" : familiarity,
+    "emotion23" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 24){
+    base('dataset').update(recordId, {
+    "video24" : video,
+    "arousal24" : arousal,
+    "valence24" : valence,
+    "dominance24" : dominance,
+    "liking24" : liking,
+    "relevance24" : relevance,
+    "familarity24" : familiarity,
+    "emotion24" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 25){
+    base('dataset').update(recordId, {
+    "video25" : video,
+    "arousal25" : arousal,
+    "valence25" : valence,
+    "dominance25" : dominance,
+    "liking25" : liking,
+    "relevance25" : relevance,
+    "familarity25" : familiarity,
+    "emotion25" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 26){
+    base('dataset').update(recordId, {
+    "video26" : video,
+    "arousal26" : arousal,
+    "valence26" : valence,
+    "dominance26" : dominance,
+    "liking26" : liking,
+    "relevance26" : relevance,
+    "familarity26" : familiarity,
+    "emotion26" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 27){
+    base('dataset').update(recordId, {
+    "video27" : video,
+    "arousal27" : arousal,
+    "valence27" : valence,
+    "dominance27" : dominance,
+    "liking27" : liking,
+    "relevance27" : relevance,
+    "familarity27" : familiarity,
+    "emotion27" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 28){
+    base('dataset').update(recordId, {
+    "video28" : video,
+    "arousal28" : arousal,
+    "valence28" : valence,
+    "dominance28" : dominance,
+    "liking28" : liking,
+    "relevance28" : relevance,
+    "familarity28" : familiarity,
+    "emotion28" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 29){
+    base('dataset').update(recordId, {
+    "video29" : video,
+    "arousal29" : arousal,
+    "valence29" : valence,
+    "dominance29" : dominance,
+    "liking29" : liking,
+    "relevance29" : relevance,
+    "familarity29" : familiarity,
+    "emotion29" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
+    });
+    }
+    else if(count == 30){
+    base('dataset').update(recordId, {
+    "video30" : video,
+    "arousal30" : arousal,
+    "valence30" : valence,
+    "dominance30" : dominance,
+    "liking30" : liking,
+    "relevance30" : relevance,
+    "familarity30" : familiarity,
+    "emotion30" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+
 });
+if(count > 10){
+    $("#finish").removeAttr('disabled');
+    $("#finish").click(function(){
+        var recordId = localStorage.getItem("recordid");
+    var valence=document.getElementById("valenceSlider").value;
+    var arousal=document.getElementById("arousalSlider").value;
+    var dominance=document.getElementById("dominanceSlider").value;
+    var liking=document.getElementById("likingSlider").value;
+    var relevance=document.getElementById("relevanceSlider").value;
+    var familiarity=document.getElementById("familiaritySlider").value;
+    var emotion=$("#emotions option:selected").text();
+    var video=videoName.get(videoNo);
+        if(count == 11){
+    base('dataset').update(recordId, {
+    "video11" : video,
+    "arousal11" : arousal,
+    "valence11" : valence,
+    "dominance11" : dominance,
+    "liking11" : liking,
+    "relevance11" : relevance,
+    "familarity11" : familiarity,
+    "emotion11" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 12){
+    base('dataset').update(recordId, {
+    "video12" : video,
+    "arousal12" : arousal,
+    "valence12" : valence,
+    "dominance12" : dominance,
+    "liking12" : liking,
+    "relevance12" : relevance,
+    "familarity12" : familiarity,
+    "emotion12" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 13){
+    base('dataset').update(recordId, {
+    "video13" : video,
+    "arousal13" : arousal,
+    "valence13" : valence,
+    "dominance13" : dominance,
+    "liking13" : liking,
+    "relevance13" : relevance,
+    "familarity13" : familiarity,
+    "emotion13" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 14){
+    base('dataset').update(recordId, {
+    "video14" : video,
+    "arousal14" : arousal,
+    "valence14" : valence,
+    "dominance14" : dominance,
+    "liking14" : liking,
+    "relevance14" : relevance,
+    "familarity14" : familiarity,
+    "emotion14" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 15){
+    base('dataset').update(recordId, {
+    "video15" : video,
+    "arousal15" : arousal,
+    "valence15" : valence,
+    "dominance15" : dominance,
+    "liking15" : liking,
+    "relevance15" : relevance,
+    "familarity15" : familiarity,
+    "emotion15" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 16){
+    base('dataset').update(recordId, {
+    "video16" : video,
+    "arousal16" : arousal,
+    "valence16" : valence,
+    "dominance16" : dominance,
+    "liking16" : liking,
+    "relevance16" : relevance,
+    "familarity16" : familiarity,
+    "emotion16" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 17){
+    base('dataset').update(recordId, {
+    "video17" : video,
+    "arousal17" : arousal,
+    "valence17" : valence,
+    "dominance17" : dominance,
+    "liking17" : liking,
+    "relevance17" : relevance,
+    "familarity17" : familiarity,
+    "emotion17" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 18){
+    base('dataset').update(recordId, {
+    "video18" : video,
+    "arousal18" : arousal,
+    "valence18" : valence,
+    "dominance18" : dominance,
+    "liking18" : liking,
+    "relevance18" : relevance,
+    "familarity18" : familiarity,
+    "emotion18" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 19){
+    base('dataset').update(recordId, {
+    "video19" : video,
+    "arousal19" : arousal,
+    "valence19" : valence,
+    "dominance19" : dominance,
+    "liking19" : liking,
+    "relevance19" : relevance,
+    "familarity19" : familiarity,
+    "emotion19" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 20){
+    base('dataset').update(recordId, {
+    "video20" : video,
+    "arousal20" : arousal,
+    "valence20" : valence,
+    "dominance20" : dominance,
+    "liking20" : liking,
+    "relevance20" : relevance,
+    "familarity20" : familiarity,
+    "emotion20" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 21){
+    base('dataset').update(recordId, {
+    "video21" : video,
+    "arousal21" : arousal,
+    "valence21" : valence,
+    "dominance21" : dominance,
+    "liking21" : liking,
+    "relevance21" : relevance,
+    "familarity21" : familiarity,
+    "emotion21" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 22){
+    base('dataset').update(recordId, {
+    "video22" : video,
+    "arousal22" : arousal,
+    "valence22" : valence,
+    "dominance22" : dominance,
+    "liking22" : liking,
+    "relevance22" : relevance,
+    "familarity22" : familiarity,
+    "emotion22" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 23){
+    base('dataset').update(recordId, {
+    "video23" : video,
+    "arousal23" : arousal,
+    "valence23" : valence,
+    "dominance23" : dominance,
+    "liking23" : liking,
+    "relevance23" : relevance,
+    "familarity23" : familiarity,
+    "emotion23" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 24){
+    base('dataset').update(recordId, {
+    "video24" : video,
+    "arousal24" : arousal,
+    "valence24" : valence,
+    "dominance24" : dominance,
+    "liking24" : liking,
+    "relevance24" : relevance,
+    "familarity24" : familiarity,
+    "emotion24" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 25){
+    base('dataset').update(recordId, {
+    "video25" : video,
+    "arousal25" : arousal,
+    "valence25" : valence,
+    "dominance25" : dominance,
+    "liking25" : liking,
+    "relevance25" : relevance,
+    "familarity25" : familiarity,
+    "emotion25" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 26){
+    base('dataset').update(recordId, {
+    "video26" : video,
+    "arousal26" : arousal,
+    "valence26" : valence,
+    "dominance26" : dominance,
+    "liking26" : liking,
+    "relevance26" : relevance,
+    "familarity26" : familiarity,
+    "emotion26" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 27){
+    base('dataset').update(recordId, {
+    "video27" : video,
+    "arousal27" : arousal,
+    "valence27" : valence,
+    "dominance27" : dominance,
+    "liking27" : liking,
+    "relevance27" : relevance,
+    "familarity27" : familiarity,
+    "emotion27" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 28){
+    base('dataset').update(recordId, {
+    "video28" : video,
+    "arousal28" : arousal,
+    "valence28" : valence,
+    "dominance28" : dominance,
+    "liking28" : liking,
+    "relevance28" : relevance,
+    "familarity28" : familiarity,
+    "emotion28" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 29){
+    base('dataset').update(recordId, {
+    "video29" : video,
+    "arousal29" : arousal,
+    "valence29" : valence,
+    "dominance29" : dominance,
+    "liking29" : liking,
+    "relevance29" : relevance,
+    "familarity29" : familiarity,
+    "emotion29" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    else if(count == 30){
+    base('dataset').update(recordId, {
+    "video30" : video,
+    "arousal30" : arousal,
+    "valence30" : valence,
+    "dominance30" : dominance,
+    "liking30" : liking,
+    "relevance30" : relevance,
+    "familarity30" : familiarity,
+    "emotion30" : emotion 
+}, function(err, record) {
+    if (err) { console.error(err); return; }
+    console.log("Done");
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
+    });
+    }
+    });
+}
 
 </script>
 <!-- Slider JS -->
