@@ -55,7 +55,7 @@
     }
     localStorage.setItem("videoNo",videoNo); 
     console.log("Video no is "+ videoNo);
-    $('.displayVideo').append('<video src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay" controls></video>')
+    $('.displayVideo').append('<video src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
     $("#test-video").bind("ended", function() {
       var count = parseInt(localStorage.getItem("count")) + 1 ;
       localStorage.setItem("count",count);
