@@ -53,8 +53,10 @@
     while(seen.includes(videoNo)){
         videoNo = Math.floor(Math.random()*30)+1;
     }
+    var count = parseInt(localStorage.getItem("count"));
     localStorage.setItem("videoNo",videoNo); 
     console.log("Video no is "+ videoNo);
+    console.log(count);
     $('.displayVideo').append('<video src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
     $("#test-video").bind("ended", function() {
       var count = parseInt(localStorage.getItem("count")) + 1 ;

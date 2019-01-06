@@ -274,6 +274,16 @@
 
                                             
                                     </div>
+                                    <div id="emotionType" class="columns">
+                                        <div class="column is-6">
+                                                <div class="field">
+                                                        <div class="control">
+                                                          <input id="emotionTypeText" class="input is-large" type="text" placeholder="Type your emotion">
+                                                        </div>
+                                             </div>
+                                        </div>
+
+                                    </div>
                                 </div>
 
         <!-- <div class="columns">
@@ -300,6 +310,8 @@
 </body>
 <script>
 var Airtable = require('airtable');
+
+$("#emotionType").hide();
 // Get a base ID for an instance of art gallery example
 var base = new Airtable({ apiKey: 'keyohoRKRtvuB9AvU' }).base('appiFmHtdP6Hf3mMf');
 var videoNo = localStorage.getItem("videoNo");
@@ -355,6 +367,9 @@ $('#submit').click(function(){
     var relevance=document.getElementById("relevanceSlider").value;
     var familiarity=document.getElementById("familiaritySlider").value;
     var emotion=$("#emotions option:selected").text();
+    if(emotion=="No Emotion From List"){
+        emotion=document.getElementById("emotionTypeText").value;
+    }
     var video=videoName.get(videoNo);
     console.log(video)
     // var success = 0;
@@ -371,7 +386,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 2){
     base('dataset').update(recordId, {
@@ -386,7 +401,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 3){
     base('dataset').update(recordId, {
@@ -401,7 +416,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }else if(count == 4){
     base('dataset').update(recordId, {
@@ -416,7 +431,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html"; 
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html"; 
     });
     }else if(count == 5){
     base('dataset').update(recordId, {
@@ -431,7 +446,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 6){
@@ -447,7 +462,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 7){
@@ -463,7 +478,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 8){
@@ -479,7 +494,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 9){
@@ -495,7 +510,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 10){
@@ -511,7 +526,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 11){
@@ -527,7 +542,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 12){
@@ -543,7 +558,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 13){
@@ -559,7 +574,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 14){
@@ -575,7 +590,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 15){
@@ -591,7 +606,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 16){
@@ -607,7 +622,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 17){
@@ -623,7 +638,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 18){
@@ -639,7 +654,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 19){
@@ -655,7 +670,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 20){
@@ -671,7 +686,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 21){
@@ -687,7 +702,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 22){
@@ -703,7 +718,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 23){
@@ -719,7 +734,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 24){
@@ -735,7 +750,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 25){
@@ -751,7 +766,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 26){
@@ -767,7 +782,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 27){
@@ -783,7 +798,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 28){
@@ -799,7 +814,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 29){
@@ -815,7 +830,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/view.html";
     });
     }
     else if(count == 30){
@@ -831,7 +846,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
 
@@ -861,7 +876,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 12){
@@ -877,7 +892,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 13){
@@ -893,7 +908,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 14){
@@ -909,7 +924,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 15){
@@ -925,7 +940,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 16){
@@ -941,7 +956,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 17){
@@ -957,7 +972,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 18){
@@ -973,7 +988,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 19){
@@ -989,7 +1004,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 20){
@@ -1005,7 +1020,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 21){
@@ -1021,7 +1036,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 22){
@@ -1037,7 +1052,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 23){
@@ -1053,7 +1068,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 24){
@@ -1069,7 +1084,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 25){
@@ -1085,7 +1100,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 26){
@@ -1101,7 +1116,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 27){
@@ -1117,7 +1132,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 28){
@@ -1133,7 +1148,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 29){
@@ -1149,7 +1164,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 30){
@@ -1165,7 +1180,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/forfun/EEG-Testing-App/finish.html";
     });
     }
     });
@@ -1214,6 +1229,18 @@ valence.oninput = function() {
         $("#emotions").html('<option>"Alarmed: An anxious awareness of danger"</option><option>"Tense: Become tense, typically through anxiety or nervousness"</option><option>"Angry: Feeling or showing strong annoyance, displeasure, or hostility, full of anger"</option><option>"Afraid: Worried that something undesirable will occur or be done"</option><option>"Distress: Suffering from extreme anxiety, sorrow, or pain"</option><option>"Frustrated: Feeling or expressing distress and annoyance resulting from an inability to change or achieve something"</option><option>"Disgust: A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive"</option><option>"Distrustful: Feeling or showing distrust of someone or something."</option><option>"Hate: Have a strong aversion to (something)"</option><option>"Startled: Feeling or showing sudden shock or alarm."</option><option>No Emotion From List</option>')
     }else if(valenceValue<=5 && arousalValue<=5){
         $("#emotions").html('<option>"Miserable: wretchedly unhappy or uncomfortable"</option><option>"Melancholic: Feeling or expressing pensive sadness"</option><option>"Sad: Feeling or showing sorrow, unhappy"</option><option>"Depressed: in a state of unhappiness or despondency"</option><option>"Dissatisfied: Not content or happy with something."</option><option>"Despondent: In low spirits from loss of hope or courage."</option><option>"Taken Aback: Shock or surprise someone."</option><option>No Emotion From List</option>');
+    }
+}
+var emotion = document.getElementById("emotions");
+
+emotion.oninput = function() { 
+    console.log(this.options[this.selectedIndex].text)
+    emotionText=this.options[this.selectedIndex].text
+    if(emotionText=="No Emotion From List"){
+        console.log("Text box should be displayed")
+        $("#emotionType").show(300);
+    }else{
+        $('#emotionType').hide(300);
     }
 }
 var dominance = document.getElementById("dominanceSlider");
