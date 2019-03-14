@@ -57,15 +57,27 @@
     localStorage.setItem("videoNo",videoNo); 
     console.log("Video no is "+ videoNo);
     console.log(count);
-    $('.displayVideo').append('<video src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
+    $('.displayVideo').append('<video oncontextmenu="return false;" src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
+  // Function to get the time stamps when the user feels a particular emotion and clicks on the video
+    var videoFrame=document.getElementById('test-video');
+  timeStamps=[]
+  $('#test-video').click(function(){
+      // console.log("This is clicked")
+      emotionTime=videoFrame.currentTime
+      timeStamps.push(emotionTime)
+      // console.log(timeStamps)
+  });
+  
     $("#test-video").bind("ended", function() {
       var count = parseInt(localStorage.getItem("count")) + 1 ;
       localStorage.setItem("count",count);
      console.log("This message is displayed at the ending!");
      seen.push(videoNo);
      localStorage.setItem("seen",JSON.stringify(seen));
+     localStorage.setItem("timeStamps",JSON.stringify(timeStamps));
     $("#next").removeAttr('disabled');
     $("#next").attr("href","feedback.html");
   });
+  
   </script>
 </html>
