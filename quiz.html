@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
     <script src="airtable.browser.js"></script>
 </head>
+<style>
+.card {
+    height: 300px;
+}</style>
 <body>
     <!-- Navbar start  -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -19,5 +23,607 @@
         </div>
     </nav>
     <!-- Navbar end  -->
+    <!-- Heading start  -->
+    <section class="hero is-primary has-text-centered">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  Quiz
+                </h1>
+                <h2 class="subtitle">
+                  Answer at least 10 out of 11 of these questions to begin the test
+                </h2>
+              </div>
+            </div>
+          </section>
+    <!-- Heading end -->
+    <div class="container is-fluid" style="margin-top : 25px;">
+        <div class="columns">
+                        <h1 class="title"> Correct Answers :  <span class="tag is-dark is-large" id="correct"></span></h1> 
+                    </div>
+        <div class="columns">
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    1.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                    Listening to favourite, low pitch music
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer1" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer1" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer1" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer1" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    2.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        With Friends in a group and people are joking around
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer2" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer2" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer2" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer2" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    3.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Feeling in-animated unpleasantly due to any current event
+
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer3" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer3" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer3" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer3" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    4.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        You got a dream job
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer4" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer4" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer4" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer4" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    5.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Somebody else got promotion which you deserve
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer5" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer5" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer5" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer5" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    6.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Have seen a snake
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer6" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer6" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer6" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer6" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    7.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Spending time with loved one.
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer7" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer7" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer7" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer7" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    8.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Stuck in a problem for long time
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer8" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer8" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer8" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer8" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    9.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Loving Animals
+
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer9" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer9" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer9" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer9" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    10.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        Meditation
+
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer10" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer10" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer10" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer10" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="title">
+                                    11.
+                                </div>
+                            </div>
+                            <div class="media-content">
+                                <div class="title is-5">
+                                        State after lost someone
+                                </div>
+                                <div class="heading">
+                                        <div class="control">
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer11" value="HVHA">
+                                                  HVHA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer11" value="HVLA">
+                                                  HVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer11" value="LVLA">
+                                                  LVLA
+                                                </label>
+                                                <br>
+                                                <label class="radio">
+                                                  <input  oninput="checkAnswer()" type="radio" name="answer11" value="LVHA">
+                                                  LVHA
+                                                </label>
+                                                <br>
+                                              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3" style="padding: 100px;">
+                <a class="button is-large is-success" id="next" title="Disabled button" disabled>Begin Test</a>
+            </div>
+        </div>
+    </div>
     </body>
+    <script>
+        function checkAnswer() {
+            var answer1=$("input[name='answer1']:checked").val();
+            var answer2=$("input[name='answer2']:checked").val();
+            var answer3=$("input[name='answer3']:checked").val();
+            var answer4=$("input[name='answer4']:checked").val();
+            var answer5=$("input[name='answer5']:checked").val();
+            var answer6=$("input[name='answer6']:checked").val();
+            var answer7=$("input[name='answer7']:checked").val();
+            var answer8=$("input[name='answer8']:checked").val();
+            var answer9=$("input[name='answer9']:checked").val();
+            var answer10=$("input[name='answer10']:checked").val();
+            var answer11=$("input[name='answer11']:checked").val();
+            // Now check answers
+            var correctAnswers=0;
+            if (answer1=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer2=="HVHA"){
+                correctAnswers++;
+            }
+            if (answer3=="LVLA"){
+                correctAnswers++;
+            }
+            if (answer4=="HVHA"){
+                correctAnswers++;
+            }
+            if (answer5=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer6=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer7=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer8=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer9=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer10=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer11=="LVLA"){
+                correctAnswers++;
+            }
+            var correctOutput=document.getElementById('correct');
+            correctOutput.innerHTML=String(correctAnswers)+"/11";
+            if(correctAnswers >=10){
+                $("#next").removeAttr('disabled');
+                $("#next").attr("href","view.html");
+            }
+        } 
+         $(document).ready(
+        function checkAnswer() {
+            var answer1=$("input[name='answer1']:checked").val();
+            var answer2=$("input[name='answer2']:checked").val();
+            var answer3=$("input[name='answer3']:checked").val();
+            var answer4=$("input[name='answer4']:checked").val();
+            var answer5=$("input[name='answer5']:checked").val();
+            var answer6=$("input[name='answer6']:checked").val();
+            var answer7=$("input[name='answer7']:checked").val();
+            var answer8=$("input[name='answer8']:checked").val();
+            var answer9=$("input[name='answer9']:checked").val();
+            var answer10=$("input[name='answer10']:checked").val();
+            var answer11=$("input[name='answer11']:checked").val();
+            // Now check answers
+            var correctAnswers=0;
+            if (answer1=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer2=="HVHA"){
+                correctAnswers++;
+            }
+            if (answer3=="LVLA"){
+                correctAnswers++;
+            }
+            if (answer4=="HVHA"){
+                correctAnswers++;
+            }
+            if (answer5=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer6=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer7=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer8=="LVHA"){
+                correctAnswers++;
+            }
+            if (answer9=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer10=="HVLA"){
+                correctAnswers++;
+            }
+            if (answer11=="LVLA"){
+                correctAnswers++;
+            }
+            var correctOutput=document.getElementById('correct');
+            correctOutput.innerHTML=String(correctAnswers)+"/11";
+        } 
+         );
+    </script>
+
 </html>

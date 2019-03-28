@@ -32,39 +32,42 @@
         </div>
     </nav>
     <!-- Navbar end  -->
-    <div class="container" style="margin-top : -150px;">
-      
+    <div class="container" style="">
+        <div class="columns has-text-centered">
+            <div class="column is-4 is-offset-4 has-text-centered ">
+                <div class=" ">
+                  Click on the video whenever you feel aroused.<br>
+                  (Hover to see the time stamps)
+                  <br>
+  
+                    <div class="dropdown is-hoverable is-medium has-text-centered">
+                        <div class="dropdown-trigger has-text-centered">
+                          <button class="button is-medium has-text-centered" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span class="title  has-text-centered" style="text-align:center;">Timestamps</span>
+                            <!-- <span class="icon is-large">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span> -->
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content timestamps ">
+                            <div class="dropdown-item">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+              
+          </div>
         <div class="columns">
           <div class="column is-10 is-offset-1 displayVideo">
             <!-- <video  src="videos/1.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video> -->
           </div>
         </div>
        
-        <div class="columns has-text-centered">
-          <div class="column is-4 is-offset-4 has-text-centered ">
-              <div class=" ">
-                Click on the screen whenever you feel aroused.(Hover to see the time stamps)
-                  <div class="dropdown is-hoverable is-large has-text-centered">
-                      <div class="dropdown-trigger has-text-centered">
-                        <button class="button is-large has-text-centered" aria-haspopup="true" aria-controls="dropdown-menu4">
-                          <span class="title has-text-centered" style="text-align:center;">Timestamps</span>
-                          <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                          </span>
-                        </button>
-                      </div>
-                      <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                        <div class="dropdown-content timestamps ">
-                          <div class="dropdown-item">
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-              </div>
-          </div>
-            
-        </div>
+       
         <div class="columns">
           <div class="column is-4 is-offset-8 next-button">
             <a class="button is-large is-success" id="next" title="Disabled button" disabled>Next</a>
@@ -88,7 +91,7 @@
     $('.displayVideo').append('<video oncontextmenu="return false;" src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
   // Function to get the time stamps when the user feels a particular emotion and clicks on the video
     var videoFrame=document.getElementById('test-video');
-  timeStamps=[]
+   var timeStamps=[];
   $('#test-video').click(function(){
       console.log("This is clicked")
       emotionTime=videoFrame.currentTime.toFixed(1)
