@@ -352,7 +352,7 @@ videoName.set("30","Titanic_Movie_Crash_Scene");
 
 $('#submit').click(function(){
     // var videoFieldName = "video"+ count;
-    // var slider1FieldName = count + "slider1";
+ // var slider1FieldName = count + "slider1";
     // console.log(videoFieldName);
     // console.log(slider1FieldName);
     console.log(videoNo);
@@ -367,6 +367,8 @@ $('#submit').click(function(){
     var relevance=document.getElementById("relevanceSlider").value;
     var familiarity=document.getElementById("familiaritySlider").value;
     var emotion=$("#emotions option:selected").text();
+    var timeStamps=JSON.parse(localStorage.getItem("timeStamps"));
+    timeStamps=timeStamps.join();
     if(emotion=="No Emotion From List"){
         emotion=document.getElementById("emotionTypeText").value;
     }
@@ -376,6 +378,7 @@ $('#submit').click(function(){
     if(count == 1){
     base('dataset').update(recordId, {
     "video1" : video,
+    "timestamp1" : timeStamps,
     "arousal1" : arousal,
     "valence1" : valence,
     "dominance1" : dominance,
@@ -386,11 +389,12 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }else if(count == 2){
     base('dataset').update(recordId, {
     "video2" : video,
+    "timestamp2" : timeStamps,
     "arousal2" : arousal,
     "valence2" : valence,
     "dominance2" : dominance,
@@ -401,11 +405,12 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }else if(count == 3){
     base('dataset').update(recordId, {
     "video3" : video,
+    "timestamp3" : timeStamps,
     "arousal3" : arousal,
     "valence3" : valence,
     "dominance3" : dominance,
@@ -416,11 +421,12 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }else if(count == 4){
     base('dataset').update(recordId, {
     "video4" : video,
+    "timestamp4" : timeStamps,
     "arousal4" : arousal,
     "valence4" : valence,
     "dominance4" : dominance,
@@ -431,11 +437,12 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html"; 
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html"; 
     });
     }else if(count == 5){
     base('dataset').update(recordId, {
     "video5" : video,
+    "timestamp5" : timeStamps,
     "arousal5" : arousal,
     "valence5" : valence,
     "dominance5" : dominance,
@@ -446,12 +453,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 6){
     base('dataset').update(recordId, {
     "video6" : video,
+    "timestamp6" : timeStamps,
     "arousal6" : arousal,
     "valence6" : valence,
     "dominance6" : dominance,
@@ -462,12 +470,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 7){
     base('dataset').update(recordId, {
     "video7" : video,
+    "timestamp7" : timeStamps,
     "arousal7" : arousal,
     "valence7" : valence,
     "dominance7" : dominance,
@@ -478,12 +487,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 8){
     base('dataset').update(recordId, {
     "video8" : video,
+    "timestamp8" : timeStamps,
     "arousal8" : arousal,
     "valence8" : valence,
     "dominance8" : dominance,
@@ -494,12 +504,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 9){
     base('dataset').update(recordId, {
     "video9" : video,
+    "timestamp9" : timeStamps,
     "arousal9" : arousal,
     "valence9" : valence,
     "dominance9" : dominance,
@@ -510,12 +521,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 10){
     base('dataset').update(recordId, {
     "video10" : video,
+    "timestamp10" : timeStamps,
     "arousal10" : arousal,
     "valence10" : valence,
     "dominance10" : dominance,
@@ -526,12 +538,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 11){
     base('dataset').update(recordId, {
     "video11" : video,
+    "timestamp11" : timeStamps,
     "arousal11" : arousal,
     "valence11" : valence,
     "dominance11" : dominance,
@@ -542,12 +555,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 12){
     base('dataset').update(recordId, {
     "video12" : video,
+    "timestamp12" : timeStamps,
     "arousal12" : arousal,
     "valence12" : valence,
     "dominance12" : dominance,
@@ -558,12 +572,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 13){
     base('dataset').update(recordId, {
     "video13" : video,
+    "timestamp13" : timeStamps,
     "arousal13" : arousal,
     "valence13" : valence,
     "dominance13" : dominance,
@@ -574,12 +589,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 14){
     base('dataset').update(recordId, {
     "video14" : video,
+    "timestamp14" : timeStamps,
     "arousal14" : arousal,
     "valence14" : valence,
     "dominance14" : dominance,
@@ -590,12 +606,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 15){
     base('dataset').update(recordId, {
     "video15" : video,
+    "timestamp15" : timeStamps,
     "arousal15" : arousal,
     "valence15" : valence,
     "dominance15" : dominance,
@@ -606,12 +623,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 16){
     base('dataset').update(recordId, {
     "video16" : video,
+    "timestamp16" : timeStamps,
     "arousal16" : arousal,
     "valence16" : valence,
     "dominance16" : dominance,
@@ -622,12 +640,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 17){
     base('dataset').update(recordId, {
     "video17" : video,
+    "timestamp17" : timeStamps,
     "arousal17" : arousal,
     "valence17" : valence,
     "dominance17" : dominance,
@@ -638,12 +657,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 18){
     base('dataset').update(recordId, {
     "video18" : video,
+    "timestamp18" : timeStamps,
     "arousal18" : arousal,
     "valence18" : valence,
     "dominance18" : dominance,
@@ -654,12 +674,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 19){
     base('dataset').update(recordId, {
     "video19" : video,
+    "timestamp19" : timeStamps,
     "arousal19" : arousal,
     "valence19" : valence,
     "dominance19" : dominance,
@@ -670,12 +691,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 20){
     base('dataset').update(recordId, {
     "video20" : video,
+    "timestamp20" : timeStamps,
     "arousal20" : arousal,
     "valence20" : valence,
     "dominance20" : dominance,
@@ -686,12 +708,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 21){
     base('dataset').update(recordId, {
     "video21" : video,
+    "timestamp21" : timeStamps,
     "arousal21" : arousal,
     "valence21" : valence,
     "dominance21" : dominance,
@@ -702,12 +725,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 22){
     base('dataset').update(recordId, {
     "video22" : video,
+    "timestamp22" : timeStamps,
     "arousal22" : arousal,
     "valence22" : valence,
     "dominance22" : dominance,
@@ -718,12 +742,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 23){
     base('dataset').update(recordId, {
     "video23" : video,
+    "timestamp23" : timeStamps,
     "arousal23" : arousal,
     "valence23" : valence,
     "dominance23" : dominance,
@@ -734,12 +759,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 24){
     base('dataset').update(recordId, {
     "video24" : video,
+    "timestamp24" : timeStamps,
     "arousal24" : arousal,
     "valence24" : valence,
     "dominance24" : dominance,
@@ -750,12 +776,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 25){
     base('dataset').update(recordId, {
     "video25" : video,
+    "timestamp25" : timeStamps,
     "arousal25" : arousal,
     "valence25" : valence,
     "dominance25" : dominance,
@@ -766,12 +793,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 26){
     base('dataset').update(recordId, {
     "video26" : video,
+    "timestamp26" : timeStamps,
     "arousal26" : arousal,
     "valence26" : valence,
     "dominance26" : dominance,
@@ -782,12 +810,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 27){
     base('dataset').update(recordId, {
     "video27" : video,
+    "timestamp27" : timeStamps,
     "arousal27" : arousal,
     "valence27" : valence,
     "dominance27" : dominance,
@@ -798,12 +827,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 28){
     base('dataset').update(recordId, {
     "video28" : video,
+    "timestamp28" : timeStamps,
     "arousal28" : arousal,
     "valence28" : valence,
     "dominance28" : dominance,
@@ -814,12 +844,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 29){
     base('dataset').update(recordId, {
     "video29" : video,
+    "timestamp29" : timeStamps,
     "arousal29" : arousal,
     "valence29" : valence,
     "dominance29" : dominance,
@@ -830,12 +861,13 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/view.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/view.html";
     });
     }
     else if(count == 30){
     base('dataset').update(recordId, {
     "video30" : video,
+    "timestamp30" : timeStamps,
     "arousal30" : arousal,
     "valence30" : valence,
     "dominance30" : dominance,
@@ -846,7 +878,7 @@ $('#submit').click(function(){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
 
@@ -866,6 +898,7 @@ if(count > 10){
         if(count == 11){
     base('dataset').update(recordId, {
     "video11" : video,
+    "timestamp1" : timeStamps,
     "arousal11" : arousal,
     "valence11" : valence,
     "dominance11" : dominance,
@@ -876,12 +909,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 12){
     base('dataset').update(recordId, {
     "video12" : video,
+    "timestamp1" : timeStamps,
     "arousal12" : arousal,
     "valence12" : valence,
     "dominance12" : dominance,
@@ -892,12 +926,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 13){
     base('dataset').update(recordId, {
     "video13" : video,
+    "timestamp1" : timeStamps,
     "arousal13" : arousal,
     "valence13" : valence,
     "dominance13" : dominance,
@@ -908,12 +943,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 14){
     base('dataset').update(recordId, {
     "video14" : video,
+    "timestamp1" : timeStamps,
     "arousal14" : arousal,
     "valence14" : valence,
     "dominance14" : dominance,
@@ -924,12 +960,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 15){
     base('dataset').update(recordId, {
     "video15" : video,
+    "timestamp1" : timeStamps,
     "arousal15" : arousal,
     "valence15" : valence,
     "dominance15" : dominance,
@@ -940,12 +977,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 16){
     base('dataset').update(recordId, {
     "video16" : video,
+    "timestamp1" : timeStamps,
     "arousal16" : arousal,
     "valence16" : valence,
     "dominance16" : dominance,
@@ -956,12 +994,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 17){
     base('dataset').update(recordId, {
     "video17" : video,
+    "timestamp1" : timeStamps,
     "arousal17" : arousal,
     "valence17" : valence,
     "dominance17" : dominance,
@@ -972,12 +1011,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 18){
     base('dataset').update(recordId, {
     "video18" : video,
+    "timestamp1" : timeStamps,
     "arousal18" : arousal,
     "valence18" : valence,
     "dominance18" : dominance,
@@ -988,12 +1028,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 19){
     base('dataset').update(recordId, {
     "video19" : video,
+    "timestamp1" : timeStamps,
     "arousal19" : arousal,
     "valence19" : valence,
     "dominance19" : dominance,
@@ -1004,12 +1045,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 20){
     base('dataset').update(recordId, {
     "video20" : video,
+    "timestamp1" : timeStamps,
     "arousal20" : arousal,
     "valence20" : valence,
     "dominance20" : dominance,
@@ -1020,12 +1062,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 21){
     base('dataset').update(recordId, {
     "video21" : video,
+    "timestamp1" : timeStamps,
     "arousal21" : arousal,
     "valence21" : valence,
     "dominance21" : dominance,
@@ -1036,12 +1079,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 22){
     base('dataset').update(recordId, {
     "video22" : video,
+    "timestamp1" : timeStamps,
     "arousal22" : arousal,
     "valence22" : valence,
     "dominance22" : dominance,
@@ -1052,12 +1096,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 23){
     base('dataset').update(recordId, {
     "video23" : video,
+    "timestamp1" : timeStamps,
     "arousal23" : arousal,
     "valence23" : valence,
     "dominance23" : dominance,
@@ -1068,12 +1113,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 24){
     base('dataset').update(recordId, {
     "video24" : video,
+    "timestamp1" : timeStamps,
     "arousal24" : arousal,
     "valence24" : valence,
     "dominance24" : dominance,
@@ -1084,12 +1130,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 25){
     base('dataset').update(recordId, {
     "video25" : video,
+    "timestamp1" : timeStamps,
     "arousal25" : arousal,
     "valence25" : valence,
     "dominance25" : dominance,
@@ -1100,12 +1147,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 26){
     base('dataset').update(recordId, {
     "video26" : video,
+    "timestamp1" : timeStamps,
     "arousal26" : arousal,
     "valence26" : valence,
     "dominance26" : dominance,
@@ -1116,12 +1164,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 27){
     base('dataset').update(recordId, {
     "video27" : video,
+    "timestamp1" : timeStamps,
     "arousal27" : arousal,
     "valence27" : valence,
     "dominance27" : dominance,
@@ -1132,12 +1181,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 28){
     base('dataset').update(recordId, {
     "video28" : video,
+    "timestamp1" : timeStamps,
     "arousal28" : arousal,
     "valence28" : valence,
     "dominance28" : dominance,
@@ -1148,12 +1198,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 29){
     base('dataset').update(recordId, {
     "video29" : video,
+    "timestamp1" : timeStamps,
     "arousal29" : arousal,
     "valence29" : valence,
     "dominance29" : dominance,
@@ -1164,12 +1215,13 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     else if(count == 30){
     base('dataset').update(recordId, {
     "video30" : video,
+    "timestamp1" : timeStamps,
     "arousal30" : arousal,
     "valence30" : valence,
     "dominance30" : dominance,
@@ -1180,7 +1232,7 @@ if(count > 10){
 }, function(err, record) {
     if (err) { console.error(err); return; }
     console.log("Done");
-    window.location.href ="https://aswanthkoleri.github.io/EEG-Testing-App/finish.html";
+    window.location.href ="file:///home/aswanth/Documents/github_stuff/EEG-Testing-App/finish.html";
     });
     }
     });
