@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,108 +8,122 @@
     <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
     <script src="airtable.browser.js"></script>
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet">
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <style>
-     .next-button {
-   text-align: right;
- }
- video {
-  width: 1024px    !important;
-  height: 768px   !important;
- 
-}
-.displayVideo {
-  text-align: center;
-}
- </style>
-</head>
-<body>
-     <!-- Navbar start  -->
-     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="title is-2 navbar-item" href="#">
-              Emotion Experiment
-            </a>
-        </div>
+    .next-button {
+    text-align: right;
+    }
+    video {
+    width: 1024px    !important;
+    height: 768px   !important;
+    
+    }
+    .displayVideo {
+    text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar start  -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="title is-2 navbar-item" href="#">
+          Emotion Experiment
+        </a>
+      </div>
     </nav>
     <!-- Navbar end  -->
     <div class="container" style="">
-        <div class="columns has-text-centered">
-            <div class="column is-4 is-offset-4 has-text-centered ">
-                <div class=" ">
-                  Click on the video whenever you feel aroused.<br>
-                  (Hover to see the time stamps)
-                  <br>
-  
-                    <div class="dropdown is-hoverable is-medium has-text-centered">
-                        <div class="dropdown-trigger has-text-centered">
-                          <button class="button is-medium has-text-centered" aria-haspopup="true" aria-controls="dropdown-menu4">
-                            <span class="title  has-text-centered" style="text-align:center;">Timestamps</span>
-                            <!-- <span class="icon is-large">
-                              <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span> -->
-                          </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                          <div class="dropdown-content timestamps ">
-                            <div class="dropdown-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+      <div class="columns has-text-centered">
+        <div class="column is-4 is-offset-4 has-text-centered ">
+          <div class=" ">
+            Click on the video whenever you feel aroused.<br>
+            (Hover to see the time stamps)
+            <br>
+            
+            <div class="dropdown is-hoverable is-medium has-text-centered">
+              <div class="dropdown-trigger has-text-centered">
+                <button class="button is-medium has-text-centered" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span class="title  has-text-centered" style="text-align:center;">Timestamps</span>
+                <!-- <span class="icon is-large">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span> -->
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                <div class="dropdown-content timestamps ">
+                  <div class="dropdown-item">
+                    
+                  </div>
                 </div>
+              </div>
             </div>
-              
           </div>
-        <div class="columns">
-          <div class="column is-10 is-offset-1 displayVideo">
-            <!-- <video  src="videos/1.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video> -->
-          </div>
-        </div>
-       
-       
-        <div class="columns">
-          <div class="column is-4 is-offset-8 next-button">
-            <a class="button is-large is-success" id="next" title="Disabled button" disabled>Next</a>
-            </div>
         </div>
         
+      </div>
+      <div class="columns">
+        <div class="column is-10 is-offset-1 displayVideo">
+          <!-- <video  src="videos/1.mp4" id="test-video" type="video/mp4" autoplay="autoplay" controls></video> -->
+        </div>
+      </div>
+      
+      
+      <div class="columns">
+        <div class="column is-4 is-offset-8 next-button">
+          <a class="button is-large is-success" id="next" title="Disabled button" disabled>Next</a>
+        </div>
+      </div>
+      
     </div>
-</body>
-<script>
-    // Select a random video to display
-    var seen  = JSON.parse(localStorage.getItem("seen"));
-    console.log(seen);
-    var videoNo = Math.floor(Math.random()*30)+1;
-    while(seen.includes(videoNo)){
-        videoNo = Math.floor(Math.random()*30)+1;
-    }
-    var count = parseInt(localStorage.getItem("count"));
-    localStorage.setItem("videoNo",videoNo); 
-    console.log("Video no is "+ videoNo);
-    console.log(count);
-    $('.displayVideo').append('<video oncontextmenu="return false;" src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
-  // Function to get the time stamps when the user feels a particular emotion and clicks on the video
-    var videoFrame=document.getElementById('test-video');
-   var timeStamps=[];
-  $('#test-video').click(function(){
-      console.log("This is clicked")
-      emotionTime=videoFrame.currentTime.toFixed(1)
-      timeStamps.push(emotionTime)
-      $('.timestamps').append('<span class="tag is-dark">'+emotionTime+'s</span> &nbsp')
-      console.log(timeStamps)
-  });
-  
-    $("#test-video").bind("ended", function() {
-      var count = parseInt(localStorage.getItem("count")) + 1 ;
-      localStorage.setItem("count",count);
-     console.log("This message is displayed at the ending!");
-     seen.push(videoNo);
-     localStorage.setItem("seen",JSON.stringify(seen));
-     localStorage.setItem("timeStamps",JSON.stringify(timeStamps));
-    $("#next").removeAttr('disabled');
-    $("#next").attr("href","feedback.html");
-  });
-  
-  </script>
+    <script src='https://vjs.zencdn.net/7.5.5/video.js'></script>
+  </body>
+  <script>
+  // Select a random video to display
+  var seen  = JSON.parse(localStorage.getItem("seen"));
+  console.log(seen);
+  var videoNo = Math.floor(Math.random()*30)+1;
+  while(seen.includes(videoNo)){
+  videoNo = Math.floor(Math.random()*30)+1;
+  }
+  var count = parseInt(localStorage.getItem("count"));
+  localStorage.setItem("videoNo",videoNo);
+  console.log("Video no is "+ videoNo);
+  console.log(count);
+// $('.displayVideo').append('<video oncontextmenu="return false;" src="videos/'+videoNo+'.mp4" id="test-video" type="video/mp4" class="video-player" autoplay="autoplay"></video>')
+$('.displayVideo').append('<video muted="true" autoplay   oncontextmenu="return false;" width="1028" height="768" id="my-video" class="video-js video-player" data-setup="{}"><source src="videos/'+videoNo+'.mp4" type="video/mp4"></video>');
+
+// Function to get the time stamps when the user feels a particular emotion and clicks on the video
+var videoFrame=document.getElementById('my-video');
+$(videoFrame).on("click", function(e){
+if (videoFrame.muted===true){
+  console.log("Its muted",videoFrame);
+  console.log(videoFrame.muted);
+  videoFrame.muted=false;
+}
+});
+var timeStamps=[];
+$('video').click(function(){
+console.log("This is clicked")
+emotionTime=videoFrame.currentTime.toFixed(1)
+timeStamps.push(emotionTime)
+$('.timestamps').append('<span class="tag is-dark">'+emotionTime+'s</span> &nbsp')
+console.log(timeStamps)
+});
+
+$("#my-video").bind("ended", function() {
+var count = parseInt(localStorage.getItem("count")) + 1 ;
+localStorage.setItem("count",count);
+console.log("This message is displayed at the ending!");
+seen.push(videoNo);
+localStorage.setItem("seen",JSON.stringify(seen));
+localStorage.setItem("timeStamps",JSON.stringify(timeStamps));
+$("#next").removeAttr('disabled');
+$("#next").attr("href","feedback.html");
+});
+
+</script>
+
 </html>
